@@ -1,14 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import interRegular from './fonts/inter-regular.ttf'
+import interLight from './fonts/inter-light.ttf'
+import belgiano from './fonts/belgiano.ttf'
+
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
         <title>MorningStar Academy</title>
-        <link rel="preload" href="/fonts/belgiano.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-light.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href={belgiano} as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href={interRegular} as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href={interLight} as="font" type="font/ttf" crossOrigin="anonymous" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta

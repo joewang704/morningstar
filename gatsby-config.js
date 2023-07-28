@@ -8,5 +8,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
-  ]
+  ],
+  // TODO: Remove once moved to a real domain
+  pathPrefix: "/morningstar",
 };

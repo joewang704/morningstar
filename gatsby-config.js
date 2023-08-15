@@ -10,6 +10,4 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-emotion",
   ],
-  // TODO: Remove once moved to a real domain
-  // pathPrefix: "/morningstar",
 };

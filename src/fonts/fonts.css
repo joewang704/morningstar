@@ -3,7 +3,6 @@
   font-weight: 400;
   font-style: normal;
   src: url("./belgiano.ttf") format("truetype");
-  font-display: swap;
 }
 
 @font-face {
@@ -11,7 +10,6 @@
   font-weight: 400;
   font-style: normal;
   src: url("./inter-regular.ttf") format("truetype");
-  font-display: swap;
 }
 
 @font-face {
@@ -19,5 +17,4 @@
   font-weight: 300;
   font-style: normal;
   src: url("./inter-light.ttf") format("truetype");
-  font-display: swap;
 }

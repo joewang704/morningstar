@@ -10,4 +10,5 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-emotion",
   ],
+  pathPrefix: "/morningstar",
 };

@@ -47,6 +47,10 @@ const Navbar = ({ theme }) => {
 
   const isLightTheme = theme === 'light';
 
+  if (typeof window === "undefined") {
+    return <></>;
+  }
+
   if (breakpoint === 'desktop') {
     return (
       <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
@@ -149,13 +153,13 @@ const MobileSubmenu = styled.div`
 const Item = ({ children, sub, link }) => {
   return (
     <Container className="px-4 cursor-pointer transition-colors">
-      {link ? <a href={'/' + link}>{children}</a> : <>{children}</>}
+      {link ? <Link href={'/' + link}>{children}</Link> : <>{children}</>}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">
-            <a href={'/' + link}>
+            <Link href={'/' + link}>
               {title}
-            </a>
+            </Link>
           </div>
         ))}
       </Submenu>}

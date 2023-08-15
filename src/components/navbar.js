@@ -102,7 +102,7 @@ const Navbar = ({ theme }) => {
 }
 
 const Logo = ({ isLightTheme }) => {
-  return <Link href="/" className="mt-4 mb-4">{isLightTheme ?
+  return <Link to="/" className="mt-4 mb-4">{isLightTheme ?
     <div className="flex items-center ml-4 text-black cursor-pointer">MSDA</div> :
     <div className="flex items-center ml-4 text-white cursor-pointer">MSDA</div>
   }</Link>

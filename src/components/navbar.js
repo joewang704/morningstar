@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import styled from '@emotion/styled';
+import { Link } from "gatsby"
 import { useBreakpoints } from "../utils/breakpoints";
 import Menu from '../images/menu.js';
 import colors from 'tailwindcss/colors';
-import { Link } from "gatsby"
 
 
 const MenuContainer = styled.div`
@@ -48,7 +48,11 @@ const Navbar = ({ theme }) => {
   const isLightTheme = theme === 'light';
 
   if (typeof window === "undefined") {
-    return <></>;
+    return (
+      <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
+        <Logo isLightTheme={isLightTheme} />
+      </MenuContainer>
+    )
   }
 
   if (breakpoint === 'desktop') {
@@ -175,13 +179,13 @@ const MobileItem = ({ children, sub, link }) => {
   }
   return (
     <Container className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
-      {link ? <a href={link}>{children}</a> : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
+      {link ? <Link href={link}>{children}</Link> : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
       {sub && subMenuOpen && <MobileSubmenu>
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">
-            <a href={'/' + link}>
+            <Link href={'/' + link}>
               {title}
-            </a>
+            </Link>
           </div>
         ))}
       </MobileSubmenu>}

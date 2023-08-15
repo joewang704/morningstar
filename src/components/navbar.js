@@ -157,11 +157,11 @@ const MobileSubmenu = styled.div`
 const Item = ({ children, sub, link }) => {
   return (
     <Container className="px-4 cursor-pointer transition-colors">
-      {link ? <Link href={'/' + link}>{children}</Link> : <>{children}</>}
+      {link ? <Link to={'/' + link}>{children}</Link> : <>{children}</>}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">
-            <Link href={'/' + link}>
+            <Link to={'/' + link}>
               {title}
             </Link>
           </div>
@@ -179,11 +179,11 @@ const MobileItem = ({ children, sub, link }) => {
   }
   return (
     <Container className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
-      {link ? <Link href={link}>{children}</Link> : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
+      {link ? <Link to={link}>{children}</Link> : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
       {sub && subMenuOpen && <MobileSubmenu>
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">
-            <Link href={'/' + link}>
+            <Link to={'/' + link}>
               {title}
             </Link>
           </div>

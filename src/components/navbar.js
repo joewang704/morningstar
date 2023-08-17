@@ -33,7 +33,11 @@ const MobileMenu = styled.div`
   border-radius: 0 0 4px 4px;
   overflow: hidden;
   position: absolute;
-  ${({ isLightTheme }) => ({ color: isLightTheme ? 'black' : 'white', backgroundColor: isLightTheme ? 'white' : 'black' })}
+  ${({ isLightTheme }) => ({
+    color: isLightTheme ? 'black' : 'white',
+    backgroundColor: isLightTheme ? 'white' : 'black',
+    border: `1px solid ${isLightTheme ? colors.gray[400] : colors.gray[600]}`,
+  })}
   div {
     &:hover {
       ${({ isLightTheme }) => ({ color: isLightTheme ? '#999' : 'white' })}
@@ -70,8 +74,8 @@ const Navbar = ({ theme }) => {
             { title: 'Calendar', link: 'calendar' },
             { title: 'School Policy & Waiver', link: 'policy' },
           ]}>School Info</Item>
-          <Item link='competitions'>Competition & Performances</Item>
-          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login'>Parent Portal</Item>
+          <Item link='contact'>Contact Info</Item>
+          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Parent Portal</Item>
         </DesktopMenu>
       </MenuContainer>
     )
@@ -93,8 +97,8 @@ const Navbar = ({ theme }) => {
             { title: 'Calendar', link: 'calendar' },
             { title: 'School Policy & Waiver', link: 'policy' },
           ]}>School Info</MobileItem>
-          <MobileItem link="competitions">Competition & Performances</MobileItem>
-          <MobileItem link="parent">Parent Portal</MobileItem>
+          <MobileItem link="contact">Contact Info</MobileItem>
+          <MobileItem link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Parent Portal</MobileItem>
         </MobileMenu>}
       </div>
     </MenuContainer>
@@ -109,7 +113,10 @@ const Logo = ({ isLightTheme }) => {
 }
 
 const Container = styled.div`
+  height: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
   &:hover {
@@ -127,7 +134,7 @@ const Submenu = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 52px;
+  top: 56px;
   left: 0;
   right: 0;
   white-space: nowrap;
@@ -154,32 +161,37 @@ const MobileSubmenu = styled.div`
   }
 `
 
-const Item = ({ children, sub, link }) => {
-  return (
+const Item = ({ children, sub, link, external }) => {
+  const inner = (
     <Container className="px-4 cursor-pointer transition-colors">
-      {link ? <Link to={'/' + link}>{children}</Link> : <>{children}</>}
+      {children}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
-          <div className="text-gray-600">
-            <Link to={'/' + link}>
-              {title}
-            </Link>
-          </div>
+          <Link to={'/' + link}>
+            <div className="text-gray-600">
+                {title}
+            </div>
+          </Link>
         ))}
       </Submenu>}
     </Container>
   )
+  if (external) {
+    return <a href={link}>{inner}</a>
+  }
+  return link ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
 }
 
-const MobileItem = ({ children, sub, link }) => {
+const MobileItem = ({ children, sub, link, external }) => {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   if (link && sub) {
     throw new Error('Cannot have link and sublinks in same item')
   }
+
   return (
     <Container className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
-      {link ? <Link to={link}>{children}</Link> : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
+      {link ? (external ? <a href={link}>{children}</a> : <Link to={link}>{children}</Link>) : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
       {sub && subMenuOpen && <MobileSubmenu>
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">

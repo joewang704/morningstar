@@ -167,7 +167,7 @@ const Item = ({ children, sub, link, external }) => {
       {children}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
-          <Link to={'/' + link}>
+          <Link to={'/' + link} key={link}>
             <div className="text-gray-600">
                 {title}
             </div>

@@ -182,6 +182,21 @@ const Item = ({ children, sub, link, external }) => {
   return link ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
 }
 
+const MobileContainer = styled.div`
+  height: 100%;
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  &:hover {
+    div {
+      display: block;
+    }
+  }
+  div {
+    display: none;
+  }
+`
+
 const MobileItem = ({ children, sub, link, external }) => {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
 
@@ -190,8 +205,8 @@ const MobileItem = ({ children, sub, link, external }) => {
   }
 
   return (
-    <Container className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
-      {link ? (external ? <a href={link}>{children}</a> : <Link to={link}>{children}</Link>) : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
+    <MobileContainer className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
+      {link ? (external ? <a href={link}>{children}</a> : <Link to={'/' + link}>{children}</Link>) : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
       {sub && subMenuOpen && <MobileSubmenu>
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">
@@ -201,7 +216,7 @@ const MobileItem = ({ children, sub, link, external }) => {
           </div>
         ))}
       </MobileSubmenu>}
-    </Container>
+    </MobileContainer>
   )
 }
 

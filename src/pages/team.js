@@ -12,6 +12,7 @@ const Container = styled.div`
 const People = styled.div`
   div {
     opacity: .4;
+    width: 180px;
   }
   div:not(.selected):hover {
     opacity: 1;
@@ -19,6 +20,24 @@ const People = styled.div`
   }
   div.selected {
     opacity: 1;
+  }
+  img {
+    border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.3) 0px 30px 60px -12px, rgba(0, 0, 0, 0.4) 0px 18px 36px -18px;
+  }
+`
+
+const ImageCrop = styled.div`
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
   }
 `
 
@@ -58,7 +77,7 @@ const TeamPage = () => {
             <img src={huijuyoung} className="mx-auto" />
           </div>
         </People>
-        <p className="mt-10 mb-8">{PERSON_MAP[selected]}</p>
+        <p className="mt-10 mb-8 mx-auto" style={{ maxWidth: 900 }}>{PERSON_MAP[selected]}</p>
       </Container>
     </>
   )

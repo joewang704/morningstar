@@ -1,13 +1,13 @@
 import * as React from "react"
 import Navbar from '../components/navbar'
+import { Heading } from '../components/styles'
 
 const PolicyPage = () => {
   return (
     <>
     <Navbar theme="light" />
       <div className="relative text-black p-12">
-        <h1 style={{ fontFamily: 'Belgiano', letterSpacing: '.25rem' }}
-          className="uppercase text-headlineorg font-semibold text-6xl whitespace-nowrap mb-12">School Regulation</h1>
+        <Heading>School Regulation</Heading>
           <p>As students, have agreed in the school registration, school will provide a fair and healthy environment for students. Students should learn dancing skills, beauty, confidence, respect, and responsibility.</p>
           <br />
           <ul className="list-disc ml-4">
@@ -29,8 +29,7 @@ const PolicyPage = () => {
           </ul>
       </div>
       <div className="relative text-black p-12">
-        <h1 style={{ fontFamily: 'Belgiano', letterSpacing: '.25rem' }}
-          className="uppercase text-headlineorg font-semibold text-6xl whitespace-nowrap mb-12">Liability Agreement</h1>
+        <Heading>Liability Agreement</Heading>
           <p>No liability is assumed by Morningstar Dance Academy of Atlanta for accidents caused by acts of person or persons on the premises in the capacity of student, account holder, parent, guardian, or guest. Person hereinafter signing contract on behalf of registering student assumer's responsibility for actions of said student.</p>
           <br />
           <p>My child (under 18 years of age) has permission to participate in dance classes and all other functions as a student duly registered in Morningstar Dance Academy of Atlanta. My child is in good health and has my physician's approval to participate . I understand I am responsible for dropping off and promptly picking up my child at the end of his/her class. I understand that my child will not be supervised outside of the classroom; therefore MorningStar Dance Academy of Atlanta will not be held responsible for my child welfare.</p>

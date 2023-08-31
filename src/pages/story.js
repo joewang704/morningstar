@@ -8,7 +8,7 @@ const StoryPage = () => {
     <Navbar theme="light" />
       <div className="relative text-black p-12">
         <h1 style={{ fontFamily: 'Belgiano' }}
-          className="text-headlineorg text-6xl whitespace-nowrap mb-12 text-center">Our story</h1>
+          className="text-headlineorg text-6xl whitespace-nowrap mb-12 text-center">Learn our story</h1>
         <GoldHR />
         <div style={{ maxWidth: 900, margin: 'auto' }}>
           <p>Founded in 2004, MorningStar Dance Academy of Atlanta (MSDA) offers high quality training in classical ballet, pointe, contemporary dance, jazz, character dance, Chinese traditional and folk dance, and Kpop. The founder and artistic director of MSDA is Mr. Chen Xiao, a former professional dancer with almost thirty years of experience performing and teaching and a recipient of the top award at the International Ballet Competition in Osaka, Japan. The Academy’s teaching methods offer students an age-appropriate, challenging, and enjoyable program that combines personal enrichment with technical preparation for professional work.</p>

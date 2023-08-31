@@ -24,3 +24,27 @@ export const Heading = ({ children }) => (
     <GoldHR />
   </>
 )
+
+const BtnContainer = styled.button`
+  border: 1px solid #f59e0b;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #f59e0b;
+  letter-spacing: .8px;
+  &:hover {
+    color: white;
+    background-color: #eab308;
+  }
+`
+
+export const Button = ({ type, disabled, children, className }) => {
+  return (
+    <BtnContainer
+      type={type}
+      disabled={disabled}
+      className={"py-3 px-8 rounded " + className}
+    >
+      {children}
+    </BtnContainer>
+  )
+}

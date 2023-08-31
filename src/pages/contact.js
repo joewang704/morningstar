@@ -1,5 +1,6 @@
 import * as React from "react"
 import Navbar from '../components/navbar'
+import { Button, Heading } from '../components/styles'
 
 import { useForm, ValidationError } from '@formspree/react';
 
@@ -8,8 +9,7 @@ const ContactPage = () => {
     <>
     <Navbar theme="light" />
       <div className="relative text-black p-12">
-        <h1 style={{ fontFamily: 'Belgiano', letterSpacing: '.25rem' }}
-          className="uppercase text-headlineorg font-semibold text-6xl whitespace-nowrap mb-12">Contact</h1>
+        <Heading>Contact us</Heading>
         <ContactForm />
       </div>
     </>
@@ -23,7 +23,7 @@ const ContactForm = () => {
       return <p>Thanks for joining!</p>;
   }
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col max-w-lg">
+    <form onSubmit={handleSubmit} className="flex flex-col max-w-lg m-auto">
       <label htmlFor="email">
         Email Address
       </label>
@@ -53,9 +53,13 @@ const ContactForm = () => {
         errors={state.errors}
         className="text-sm text-red-400 mt-1"
       />
-      <button type="submit" disabled={state.submitting} className="py-2 px-8 rounded border mt-6 max-w-fit">
+      <Button
+        type="submit"
+        className="mt-6 mx-auto w-full"
+        disabled={state.submitting}
+      >
         Submit
-      </button>
+      </Button>
     </form>
   );
 }

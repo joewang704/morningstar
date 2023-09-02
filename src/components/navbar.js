@@ -5,10 +5,14 @@ import { useBreakpoints } from "../utils/breakpoints";
 import Menu from '../images/menu.js';
 import colors from 'tailwindcss/colors';
 
+const lightBorder = '#EFEFEF'
+const lightFont = '#666'
+const darkFont = '#888'
 
 const MenuContainer = styled.div`
   ${({ isLightTheme }) => ({
-    borderBottom: `1px solid ${isLightTheme ? colors.gray[400] : colors.gray[600]}`,
+    borderBottom: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
+    color: isLightTheme ? lightFont : darkFont,
   })}
 `;
 
@@ -24,7 +28,7 @@ const DesktopMenu = styled.div`
   .submenu {
     ${({ isLightTheme }) => ({
       backgroundColor: isLightTheme ? 'white' : '#111',
-      border: `1px solid ${isLightTheme ? colors.gray[400] : colors.gray[600]}`,
+      border: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
     })}
   }
 `;
@@ -34,9 +38,8 @@ const MobileMenu = styled.div`
   overflow: hidden;
   position: absolute;
   ${({ isLightTheme }) => ({
-    color: isLightTheme ? 'black' : 'white',
     backgroundColor: isLightTheme ? 'white' : 'black',
-    border: `1px solid ${isLightTheme ? colors.gray[400] : colors.gray[600]}`,
+    border: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
   })}
   div {
     &:hover {
@@ -63,7 +66,7 @@ const Navbar = ({ theme }) => {
     return (
       <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
         <Logo isLightTheme={isLightTheme} />
-        <DesktopMenu className="flex items-center text-gray-600 text-sm mr-16" isLightTheme={isLightTheme}>
+        <DesktopMenu className="flex items-center text-sm mr-16" isLightTheme={isLightTheme}>
           <Item sub={[
             { title: 'Our Team', link: 'team' },
             { title: 'Our Story', link: 'story' },
@@ -86,7 +89,7 @@ const Navbar = ({ theme }) => {
       <Logo isLightTheme={isLightTheme} />
       <div className="relative py-4">
         <div onClick={() => setMobileMenuOpen(!mobileMenuOpen)}><Menu color={isLightTheme ? 'black' : 'white'} /></div>
-        {mobileMenuOpen && <MobileMenu isLightTheme={isLightTheme} className="border-gray-800 border top-full -right-8 flex flex-col text-gray-600 text-3xl z-10 text-left items-end p-4">
+        {mobileMenuOpen && <MobileMenu isLightTheme={isLightTheme} className="top-full -right-8 flex flex-col text-3xl z-10 text-left items-end p-4">
           <MobileItem sub={[
             { title: 'Our Team', link: 'team' },
             { title: 'Our Story', link: 'story' },
@@ -177,7 +180,7 @@ const Item = ({ children, sub, link, external }) => {
     </Container>
   )
   if (external) {
-    return <a href={link}>{inner}</a>
+    return <a href={link} target="_blank">{inner}</a>
   }
   return link ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
 }
@@ -206,7 +209,7 @@ const MobileItem = ({ children, sub, link, external }) => {
 
   return (
     <MobileContainer className="px-4 cursor-pointer transition-colors whitespace-nowrap text-right">
-      {link ? (external ? <a href={link}>{children}</a> : <Link to={'/' + link}>{children}</Link>) : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
+      {link ? (external ? <a href={link} target="_blank">{children}</a> : <Link to={'/' + link}>{children}</Link>) : <span onClick={() => setSubMenuOpen(!subMenuOpen)}>{children}</span>}
       {sub && subMenuOpen && <MobileSubmenu>
         {sub.map(({ title, link }) => (
           <div className="text-gray-600">

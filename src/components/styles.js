@@ -3,7 +3,9 @@ import styled from '@emotion/styled'
 
 export const DarkStyles = () => <style>{'html { background-color: black }'}</style>
 
-export const gold = '#fad70f';
+export const gold = '#fad70f'
+
+export const darkGold = '#C48F56'
 
 export const GoldHR = styled.hr`
   border-color: ${gold};

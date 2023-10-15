@@ -2,8 +2,12 @@ import React, { useState } from "react"
 import Navbar from '../components/navbar'
 import { GoldHR } from '../components/styles'
 import styled from '@emotion/styled'
-import xiaochen from '../images/xiaochen_prof.png'
-import huijuyoung from '../images/huijuyoung_prof.png'
+import xiaochen from '../images/xiaochen_c.png'
+import wynnehuo from '../images/wynnehuo_c.png'
+import huijuyoung from '../images/huijuyoung_c.png'
+import mrswang from '../images/mrswang_c.png'
+import jessicawash from '../images/jessicawash_c.png'
+import nurzhankulybaev from '../images/nurzhankulybaev_c.png'
 
 const Container = styled.div`
   position: relative;
@@ -13,6 +17,13 @@ const People = styled.div`
   div {
     opacity: .4;
     width: 180px;
+    height: 212px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   div:not(.selected):hover {
     opacity: 1;
@@ -22,8 +33,8 @@ const People = styled.div`
     opacity: 1;
   }
   img {
-    border-radius: 4px;
-    box-shadow: rgba(50, 50, 93, 0.3) 0px 30px 60px -12px, rgba(0, 0, 0, 0.4) 0px 18px 36px -18px;
+    width: 124px;
+    height: 124px;
   }
 `
 
@@ -59,14 +70,14 @@ const TeamPage = () => {
         <h1 style={{ fontFamily: 'Belgiano' }}
           className="text-headlineorg text-6xl whitespace-nowrap mb-12 text-center">Meet our team</h1>
         <GoldHR />
-        <People className="flex justify-around mx-auto" style={{ maxWidth: 900 }}>
+        <People className="flex flex-wrap justify-center items-end mx-auto -mt-6" style={{ maxWidth: 900 }}>
           <div className={selected === 0 && 'selected'} onClick={() => setSelected(0)}>
             <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Xiao Chen</h3>
-            <img src={xiaochen} className="mx-auto mb-4" />
+            <img src={xiaochen} className="mx-auto" />
           </div>
           <div className={selected === 1 && 'selected'} onClick={() => setSelected(1)}>
             <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Wynne Huo</h3>
-            <img src={xiaochen} className="mx-auto" />
+            <img src={wynnehuo} className="mx-auto" />
           </div>
           <div className={selected === 2 && 'selected'} onClick={() => setSelected(2)}>
             <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Sherry Cheng</h3>
@@ -75,6 +86,18 @@ const TeamPage = () => {
           <div className={selected === 3 && 'selected'} onClick={() => setSelected(3)}>
             <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Hui-Ju Young</h3>
             <img src={huijuyoung} className="mx-auto" />
+          </div>
+          <div className={selected === 2 && 'selected'} onClick={() => setSelected(2)}>
+            <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Mrs.<br/>Wang</h3>
+            <img src={mrswang} className="mx-auto" />
+          </div>
+          <div className={selected === 2 && 'selected'} onClick={() => setSelected(2)}>
+            <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Jessica Washington</h3>
+            <img src={jessicawash} className="mx-auto" />
+          </div>
+          <div className={selected === 2 && 'selected'} onClick={() => setSelected(2)}>
+            <h3 style={{ fontFamily: 'Belgiano' }} className="text-3xl mb-4 text-center">Nurzhan Kulybaev</h3>
+            <img src={nurzhankulybaev} className="mx-auto" />
           </div>
         </People>
         <p className="mt-10 mb-8 mx-auto" style={{ maxWidth: 900 }}>{PERSON_MAP[selected]}</p>

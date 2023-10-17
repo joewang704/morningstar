@@ -5,6 +5,10 @@ import { useBreakpoints } from "../utils/breakpoints";
 import Menu from '../images/menu.js';
 import colors from 'tailwindcss/colors';
 
+import logoGold from '../images/logo_gold.png'
+import logoWhite from '../images/logo_white.png'
+import logoBlack from '../images/logo_black.png'
+
 const lightBorder = '#EFEFEF'
 const lightFont = '#666'
 const darkFont = '#888'
@@ -109,9 +113,9 @@ const Navbar = ({ theme }) => {
 }
 
 const Logo = ({ isLightTheme }) => {
-  return <Link to="/" className="mt-4 mb-4">{isLightTheme ?
-    <div className="flex items-center ml-4 text-black cursor-pointer">MSDA</div> :
-    <div className="flex items-center ml-4 text-white cursor-pointer">MSDA</div>
+  return <Link to="/" style={{ marginTop: '10px', marginBottom: '10px' }}>{isLightTheme ?
+    <div className="flex items-center ml-4 text-black cursor-pointer"><img src={logoGold} /></div> :
+    <div className="flex items-center ml-4 text-white cursor-pointer"><img src={logoWhite} /></div>
   }</Link>
 }
 

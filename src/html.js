@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import interRegular from './fonts/inter-regular.ttf'
 import interLight from './fonts/inter-light.ttf'
+import interSemibold from './fonts/inter-semibold.ttf'
 import belgiano from './fonts/belgiano.ttf'
 
 export default function HTML(props) {
@@ -13,6 +14,7 @@ export default function HTML(props) {
         <link rel="preload" href={belgiano} as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href={interRegular} as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href={interLight} as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href={interSemibold} as="font" type="font/ttf" crossOrigin="anonymous" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta

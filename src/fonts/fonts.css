@@ -18,3 +18,10 @@
   font-style: normal;
   src: url("./inter-light.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  src: url("./inter-semibold.ttf") format("truetype");
+}

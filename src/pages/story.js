@@ -1,11 +1,13 @@
 import * as React from "react"
+
 import Navbar from '../components/navbar'
 import { GoldHR } from "../components/styles"
+import Layout from '../components/layout'
 
 const StoryPage = () => {
   return (
-    <>
-    <Navbar theme="light" />
+    <Layout>
+      <Navbar theme="light" />
       <div className="relative text-black p-12">
         <h1 style={{ fontFamily: 'Belgiano' }}
           className="text-headlineorg text-6xl whitespace-nowrap mb-12 text-center">Learn our story</h1>
@@ -20,7 +22,7 @@ const StoryPage = () => {
           <p>Students at MSDA are offered many performance opportunities throughout the year. Besides the annual Morning Stars Dance Evening shows, the Academy receives frequent invitations to perform in community festivals and celebrations. In 2016, forty nine students were invited to perform “Jasmine Flower” at the Chinese New Year’s Gala in Beijing hosted by China Central Television. The show reached over 900 million viewers globally. Three students were invited to perform in “Amazing Kids'', a TV show hosted by Hunan Television in 2017. In 2019, twenty-five students performed “Water Lily”' at “Beyond Show”, a TV talent show hosted by Jiangsu Television. MSDA has also performed renowned ballet productions such as *Coppelia, Sleeping Beauty, Swan Lake,* and *Paquita* that create valuable opportunities for students to gain stage experience and confidence in multiple aspects of their lives.</p>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

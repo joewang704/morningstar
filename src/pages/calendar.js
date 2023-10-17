@@ -1,12 +1,14 @@
 import * as React from "react"
+import styled from '@emotion/styled'
+
 import Navbar from '../components/navbar'
 import { Heading } from '../components/styles'
-import styled from '@emotion/styled'
+import Layout from '../components/layout'
 
 const CalendarPage = () => {
   return (
-    <>
-    <Navbar theme="light" />
+    <Layout>
+      <Navbar theme="light" />
       <div className="relative text-black p-12">
         <Heading>Calendar</Heading>
         <div>Aug 21, Recital</div>
@@ -14,7 +16,7 @@ const CalendarPage = () => {
         <div>Nov 9, Special Event 2</div>
         <div>Dec 10, Special Event 3</div>
       </div>
-    </>
+    </Layout>
   )
 }
 

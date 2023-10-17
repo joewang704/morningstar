@@ -1,11 +1,13 @@
 import * as React from "react"
+
 import Navbar from '../components/navbar'
 import { Heading } from '../components/styles'
+import Layout from '../components/layout'
 
 const PolicyPage = () => {
   return (
-    <>
-    <Navbar theme="light" />
+    <Layout>
+      <Navbar theme="light" />
       <div className="relative text-black p-12">
         <Heading>School Regulation</Heading>
           <p>As students, have agreed in the school registration, school will provide a fair and healthy environment for students. Students should learn dancing skills, beauty, confidence, respect, and responsibility.</p>
@@ -41,7 +43,7 @@ const PolicyPage = () => {
           <p>I authorize the MorningStar Dance Academy of Atlanta to obtain, store, and/or use (without payment) any photographs, slides, and /or videotapes of my child (mine) for public relation, marketing/advertising, and/or class training.</p>
           <br />
       </div>
-    </>
+    </Layout>
   )
 }
 

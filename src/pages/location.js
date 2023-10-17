@@ -2,10 +2,11 @@ import * as React from "react"
 
 import Navbar from '../components/navbar'
 import { Heading } from '../components/styles'
+import Layout from '../components/layout'
 
 const LocationPage = () => {
   return (
-    <>
+    <Layout>
       <Navbar theme="light" />
       <div className="relative text-black p-12">
         <Heading>Location & Directions</Heading>
@@ -18,7 +19,7 @@ const LocationPage = () => {
         >
         </iframe>
       </div>
-    </>
+    </Layout>
   )
 }
 

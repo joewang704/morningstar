@@ -1,11 +1,12 @@
 import * as React from "react"
 import styled from '@emotion/styled'
+import { useForm, ValidationError } from '@formspree/react'
+
 import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import Layout from '../components/layout'
 import { Button, Heading } from '../components/styles'
 import { Instagram, Youtube, Facebook } from '../components/icons'
 
-import { useForm, ValidationError } from '@formspree/react'
 
 const BG = styled.img`
   position: fixed;
@@ -15,7 +16,7 @@ const BG = styled.img`
 
 const ContactPage = () => {
   return (
-    <>
+    <Layout>
       <Navbar theme="light" />
       <div className="relative text-black p-12">
         <Heading>
@@ -28,7 +29,7 @@ const ContactPage = () => {
         </Heading>
         <ContactForm />
       </div>
-    </>
+    </Layout>
   )
 }
 

@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+
 import Navbar from '../components/navbar'
 import { Heading, Button } from '../components/styles'
 import xiaochen from '../images/xiaochen_prof.png'
+import Layout from '../components/layout'
 
 const programs = [
   {
@@ -146,8 +148,8 @@ const BG = styled.div`
 
 const ProgramsPage = () => {
   return (
-    <>
-    <Navbar theme="light" />
+    <Layout>
+      <Navbar theme="light" />
       <BG className="relative text-black py-12">
         <Heading>Our programs</Heading>
         <div className="grid grid-cols-1">
@@ -173,7 +175,7 @@ const ProgramsPage = () => {
           } />)}
         </div>
         </div> */}
-    </>
+    </Layout>
   )
 }
 

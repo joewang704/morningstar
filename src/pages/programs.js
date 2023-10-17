@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 
 import Navbar from '../components/navbar'
 import { Heading, Button } from '../components/styles'
-import xiaochen from '../images/xiaochen_prof.png'
 import Layout from '../components/layout'
 
 const programs = [
@@ -183,7 +182,7 @@ const Tile = ({ title, description, link }) => {
   return (
     <div>
       <h2 style={{ fontSize: '28px', fontFamily: 'Belgiano' }}>{title}</h2>
-      <img src={xiaochen} />
+      {/* <img src={xiaochen} /> */}
       {description}
     </div>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 import { Instagram, Youtube, Facebook } from '../components/icons'
 
@@ -29,19 +30,24 @@ const Footer = () => (
         <div>
           <Header>Company</Header>
           <div>
-            <a href="/story">
+            <Link href="/story">
               About
-            </a>
+            </Link>
           </div>
           <div>
-            <a href="/location">
+            <Link href="/location">
               Location
-            </a>
+            </Link>
           </div>
           <div>
-            <a href="/policy">
+            <Link href="/calendar">
+              Events
+            </Link>
+          </div>
+          <div>
+            <Link href="/policy">
               Policy
-            </a>
+            </Link>
           </div>
         </div>
         <div>
@@ -52,14 +58,14 @@ const Footer = () => (
             <Facebook width="2rem" height="2rem" />
           </Icons>
           <div className="mt-4">
-            <a href="/contact">
+            <Link href="/contact">
               info.msda@morningstardance.com
-            </a>
+            </Link>
           </div>
           <div className="mt-1">
-            <a href="/contact">
+            <Link href="/contact">
               678-516-3026 / 678-471-9666
-            </a>
+            </Link>
           </div>
         </div>
       </div>

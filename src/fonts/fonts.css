@@ -25,3 +25,9 @@
   font-style: normal;
   src: url("./inter-semibold.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  src: url("./playfair_display-variable.ttf") format("truetype");
+}

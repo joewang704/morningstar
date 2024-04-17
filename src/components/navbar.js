@@ -1,21 +1,19 @@
 import React, { useState } from "react"
 import styled from '@emotion/styled';
 import { Link } from "gatsby"
-import { useBreakpoints } from "../utils/breakpoints";
-import Menu from '../images/menu.js';
 import colors from 'tailwindcss/colors';
 
-import logoGold from '../images/logo_gold.png'
-import logoWhite from '../images/logo_white.png'
-import logoBlack from '../images/logo_black.png'
+import { useBreakpoints } from "../utils/breakpoints";
+import { Button } from '../components/styles'
+import Menu from '../images/menu.js';
+import logo from '../images/logo.svg'
 
 const lightBorder = '#EFEFEF'
 const lightFont = '#666'
-const darkFont = '#888'
+const darkFont = '#FFF'
 
 const MenuContainer = styled.div`
   ${({ isLightTheme }) => ({
-    borderBottom: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
     color: isLightTheme ? lightFont : darkFont,
   })}
 `;
@@ -26,7 +24,7 @@ const DesktopMenu = styled.div`
   })}
   div {
     &:hover {
-      ${({ isLightTheme }) => ({ color: isLightTheme ? '#aaa' : 'white' })}
+      ${({ isLightTheme }) => ({ color: isLightTheme ? '#aaa' : '#aaa' })}
     }
   }
   .submenu {
@@ -47,7 +45,7 @@ const MobileMenu = styled.div`
   })}
   div {
     &:hover {
-      ${({ isLightTheme }) => ({ color: isLightTheme ? '#999' : 'white' })}
+      ${({ isLightTheme }) => ({ color: isLightTheme ? '#999' : '#aaa' })}
     }
   }
 `;
@@ -61,16 +59,17 @@ const Navbar = ({ theme }) => {
   if (typeof window === "undefined") {
     return (
       <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
-        <Logo isLightTheme={isLightTheme} />
+        <Logo />
       </MenuContainer>
     )
   }
 
   if (breakpoint === 'desktop') {
     return (
-      <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
-        <Logo isLightTheme={isLightTheme} />
-        <DesktopMenu className="flex items-center text-sm mr-16" isLightTheme={isLightTheme}>
+      <MenuContainer className="flex justify-between w-full px-16 mt-4" isLightTheme={isLightTheme}>
+        <Logo />
+        <DesktopMenu className="flex items-center text-sm" isLightTheme={isLightTheme}>
+          <Item link="">Home</Item>
           <Item sub={[
             { title: 'Our Team', link: 'team' },
             { title: 'Our Story', link: 'story' },
@@ -81,8 +80,10 @@ const Navbar = ({ theme }) => {
             { title: 'Calendar', link: 'calendar' },
             { title: 'School Policy & Waiver', link: 'policy' },
           ]}>School Info</Item>
-          <Item link='contact'>Contact Info</Item>
-          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Parent Portal</Item>
+          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Portal</Item>
+          <Item link='contact'>
+            <Button>Contact Us</Button>
+          </Item>
         </DesktopMenu>
       </MenuContainer>
     )
@@ -90,7 +91,7 @@ const Navbar = ({ theme }) => {
 
   return (
     <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
-      <Logo isLightTheme={isLightTheme} />
+      <Logo />
       <div className="relative py-4">
         <div onClick={() => setMobileMenuOpen(!mobileMenuOpen)}><Menu color={isLightTheme ? 'black' : 'white'} /></div>
         {mobileMenuOpen && <MobileMenu isLightTheme={isLightTheme} className="top-full -right-8 flex flex-col text-3xl z-10 text-left items-end p-4">
@@ -104,19 +105,18 @@ const Navbar = ({ theme }) => {
             { title: 'Calendar', link: 'calendar' },
             { title: 'School Policy & Waiver', link: 'policy' },
           ]}>School Info</MobileItem>
-          <MobileItem link="contact">Contact Info</MobileItem>
-          <MobileItem link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Parent Portal</MobileItem>
+          <MobileItem link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Portal</MobileItem>
+          <MobileItem link="contact">Contact Us</MobileItem>
         </MobileMenu>}
       </div>
     </MenuContainer>
   )
 }
 
-const Logo = ({ isLightTheme }) => {
-  return <Link to="/" style={{ marginTop: '10px', marginBottom: '10px' }}>{isLightTheme ?
-    <div className="flex items-center ml-4 text-black cursor-pointer"><img src={logoGold} /></div> :
-    <div className="flex items-center ml-4 text-white cursor-pointer"><img src={logoWhite} /></div>
-  }</Link>
+const Logo = () => {
+  return <Link to="/" style={{ marginTop: '10px', marginBottom: '10px' }}>
+    <div className="flex items-center ml-4 text-black cursor-pointer"><img src={logo} /></div>
+  </Link>
 }
 
 const Container = styled.div`
@@ -141,7 +141,7 @@ const Submenu = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 56px;
+  top: 96px;
   left: 0;
   right: 0;
   white-space: nowrap;
@@ -186,7 +186,7 @@ const Item = ({ children, sub, link, external }) => {
   if (external) {
     return <a href={link} target="_blank">{inner}</a>
   }
-  return link ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
+  return (link || link === '') ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
 }
 
 const MobileContainer = styled.div`

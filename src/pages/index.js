@@ -4,15 +4,17 @@ import styled from '@emotion/styled'
 
 import Navbar from '../components/navbar'
 import bg from "../images/bg.jpg"
+import bg1 from "../images/bg1.jpg"
 import bg2 from "../images/bg2.png"
 import bg3 from "../images/bg3.jpg"
 import bg4 from "../images/bg4.jpg"
-import { DarkStyles } from "../components/styles"
+import { DarkStyles, Button } from "../components/styles"
 import Layout from '../components/layout'
 
 const Container = styled.div`
   background-color: black;
   height: 100%;
+  font-family: Inter;
 `;
 
 // Jumbotron section
@@ -69,7 +71,7 @@ const DirectorSection = styled.div`
   color: white;
 `;
 
-const BGs = [bg, bg2, bg3, bg4]
+const BGs = [bg1, bg2, bg3, bg4]
 const Gradient1BGs = [0]
 
 const IndexPage = () => {
@@ -88,23 +90,22 @@ const IndexPage = () => {
       <Container>
         <Navbar />
           <div className="relative text-white">
-            <Text className="absolute left-12 lg:left-24 top-20 uppercase">
-              <h1 style={{ fontFamily: 'Belgiano', letterSpacing: '.25rem' }}
-                className="fade-in-text text-headlineorg font-semibold text-6xl whitespace-nowrap">MorningStar Dance</h1>
-              <h1 style={{ fontFamily: 'Belgiano', letterSpacing: '.25rem' }}
-                className="fade-in-text -mt-2 text-headlineorg font-semibold text-6xl whitespace-nowrap">Academy of Atlanta</h1>
-              <Link to="programs"><button style={{ fontWeight: 300 }} className="fade-in-text text-lg uppercase pt-4 hover:underline">View Our Programs {'>'}{'>'}</button></Link>
+            <Text className="absolute left-12 lg:left-24 top-20">
+              <h1 style={{ fontFamily: 'Playfair Display' }}
+                className="fade-in-text text-6xl whitespace-nowrap">We Provide Professional</h1>
+              <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
+                className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
+              <p className="fade-in-text mt-6 mb-6 font-light text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <Button>Explore Now</Button>
             </Text>
-            <Left onClick={decBg}>{'<'}</Left>
-            <Right onClick={incBg}>{'>'}</Right>
             <BGWrapper>
               <img
                 src={BGs[bg]}
                 alt="Hero Image"
                 style={{ minWidth: '1000px' }}
               />
-              {Gradient1BGs.includes(bg) && <Gradient1 />}
-              <Gradient2 />
+              {/* {Gradient1BGs.includes(bg) && <Gradient1 />}
+              <Gradient2 /> */}
             </BGWrapper>
           </div>
           <DirectorSection>

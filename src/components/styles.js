@@ -28,11 +28,9 @@ export const Heading = ({ children }) => (
 )
 
 const BtnContainer = styled.button`
-  border: 1px solid #f59e0b;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #f59e0b;
-  letter-spacing: .8px;
+  border-radius: 60px;
+  color: #fff;
+  background: linear-gradient(94.26deg, #8B6F4A -8.34%, #CDAD8B 108.94%) !important;
   &:hover {
     color: white;
     background-color: #eab308;
@@ -44,7 +42,7 @@ export const Button = ({ type, disabled, children, className }) => {
     <BtnContainer
       type={type}
       disabled={disabled}
-      className={"py-3 px-8 rounded " + className}
+      className={"py-3 px-8 " + className}
     >
       {children}
     </BtnContainer>

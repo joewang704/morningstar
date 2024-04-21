@@ -16,6 +16,7 @@ const MenuContainer = styled.div`
   ${({ isLightTheme }) => ({
     color: isLightTheme ? lightFont : darkFont,
   })}
+  background-color: black;
 `;
 
 const DesktopMenu = styled.div`

@@ -4,7 +4,6 @@
 
 html {
   font-size: 6.5px;
-  height: 100%;
   color: rgb(23, 23, 23);
 }
 
@@ -32,11 +31,9 @@ p {
 
 body {
   font-family: Inter;
-  height: 100%;
 }
 
 #___gatsby, #gatsby-focus-wrapper {
-  height: 100%;
 }
 
 @keyframes fadeIn {

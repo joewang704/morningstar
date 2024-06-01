@@ -32,8 +32,7 @@ const BtnContainer = styled.button`
   color: #fff;
   background: linear-gradient(94.26deg, #8B6F4A -8.34%, #CDAD8B 108.94%) !important;
   &:hover {
-    color: white;
-    background-color: #eab308;
+    color: #ddd;
   }
 `
 

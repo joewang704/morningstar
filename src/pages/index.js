@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from '@emotion/styled'
 
 import Navbar from '../components/navbar'
-import bg from "../images/bg.jpg"
 import bg1 from "../images/bg1_david.png"
 import bg2 from "../images/home_scroller_2.png"
 import bg3 from "../images/home_scroller_3.png"
@@ -28,6 +27,18 @@ const Container = styled.div`
 const JumbotronSection = styled.div`
   background-color: black;
   height: calc(100vh - 137px);
+  display: flex;
+`
+const JumbotronLeft = styled.div`
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+`
+const JumbotronRight = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: center;
 `
 
 const BGWrapper = styled.div`
@@ -96,51 +107,66 @@ const IndexPage = () => {
       <Container>
         <Navbar />
           <JumbotronSection className="relative text-white">
-            <Text className="absolute left-12 lg:left-24 top-40">
-              <h1 style={{ fontFamily: 'Playfair Display' }}
-                className="fade-in-text text-6xl whitespace-nowrap">We Provide Professional</h1>
-              <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
-                className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
-              <p className="fade-in-text mt-6 mb-12 font-light text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              <Button>Explore Now</Button>
-            </Text>
-            <div className="absolute bottom-12 left-12 lg:left-24 text-xl flex items-center font-extralight">
-              {[0, 1, 2, 3].map(bgNum => {
-                const displayNum = `0${bgNum + 1}`;
-                const isLast = bgNum === 3;
-                const onClick = () => setBg(bgNum);
+            <JumbotronLeft>
+              <Text className="ml-12 lg:ml-24 mt-40">
+                <h1 style={{ fontFamily: 'Playfair Display' }}
+                  className="fade-in-text text-6xl whitespace-nowrap">We Provide Professional</h1>
+                <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
+                  className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
+                <p className="fade-in-text mt-6 mb-12 font-light text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <Button>Explore Now</Button>
+              </Text>
+              <div className="bottom-12 mb-12 ml-12 lg:ml-24 text-xl flex items-center font-extralight">
+                {[0, 1, 2, 3].map(bgNum => {
+                  const displayNum = `0${bgNum + 1}`;
+                  const isLast = bgNum === 3;
+                  const onClick = () => setBg(bgNum);
 
-                if (bg === bgNum) {
-                  if (isLast) {
+                  if (bg === bgNum) {
+                    if (isLast) {
+                      return <>
+                        <div className="h-px w-44 bg-white"></div>
+                        <PageNumber className="font-bold" onClick={onClick}>{displayNum}</PageNumber>
+                      </>
+                    }
                     return <>
-                      <div className="h-px w-44 bg-white"></div>
                       <PageNumber className="font-bold" onClick={onClick}>{displayNum}</PageNumber>
+                      <div className="h-px w-44 bg-white"></div>
                     </>
                   }
-                  return <>
-                    <PageNumber className="font-bold" onClick={onClick}>{displayNum}</PageNumber>
-                    <div className="h-px w-44 bg-white"></div>
-                  </>
+                  return <PageNumber onClick={onClick}>{displayNum}</PageNumber>
+                })
                 }
-                return <PageNumber onClick={onClick}>{displayNum}</PageNumber>
-              })
-              }
-            </div>
-            <BGWrapper>
-              <img
-                src={BGs[bg]}
-                alt="Hero Image"
-                style={{ marginLeft: 'auto', marginRight: '15%', height: '100%', transform: 'scaleX(-1)' }}
-                className="fade-in-text"
-              />
-              <div className="absolute right-[10%] top-2 flex flex-col items-center">
+              </div>
+            </JumbotronLeft>
+            <JumbotronRight>
+              <BGWrapper>
+                {BGs.map((image, idx) => {
+                  if (idx === bg) {
+                    return <img
+                      src={image}
+                      alt="Hero Image"
+                      style={{ height: '100%', transform: 'scaleX(-1)' }}
+                      className="fade-in-text"
+                    />
+                  } else {
+                    return <img
+                      src={image}
+                      alt="Hero Image"
+                      style={{ height: '100%', transform: 'scaleX(-1)' }}
+                      className="fade-in-text hidden"
+                    />
+                  }
+                })}
+              </BGWrapper>
+              <div className="absolute right-[5%] top-2 flex flex-col items-center">
                 <div className="bg-white w-px h-24 mb-12 mt-24"></div>
                 <img src={fb} width={20} className="mb-12" />
                 <img src={twitter} width={35} className="mb-12" />
                 <img src={youtube} width={35} className="mb-12" />
                 <img src={insta} width={35} />
               </div>
-            </BGWrapper>
+            </JumbotronRight>
           </JumbotronSection>
           <DirectorSection className="px-24 py-36">
             <div className="flex">

@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { Link } from "gatsby"
 import styled from '@emotion/styled'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 import Navbar from '../components/navbar'
 import bg1 from "../images/bg1_david.png"
@@ -101,6 +102,13 @@ const Gradient1BGs = [0]
 
 const IndexPage = () => {
   const [bg, setBg] = useState(0)
+  const bgRef = useRef(null);
+  const bg1Ref = useRef(null);
+  const bg2Ref = useRef(null);
+  const bg3Ref = useRef(null);
+
+  const bgRefs = [bgRef, bg1Ref, bg2Ref, bg3Ref]
+  const curBgRef = bgRefs[bg]
 
   return (
     <Layout>
@@ -141,23 +149,24 @@ const IndexPage = () => {
             </JumbotronLeft>
             <JumbotronRight>
               <BGWrapper>
-                {BGs.map((image, idx) => {
-                  if (idx === bg) {
-                    return <img
-                      src={image}
+                <SwitchTransition mode="out-in">
+                  <CSSTransition
+                    key={"bg" + bg}
+                    nodeRef={curBgRef}
+                    addEndListener={(done) => {
+                      curBgRef.current.addEventListener("transitionend", done, false);
+                    }}
+                    classNames="fade"
+                  >
+                    <img
+                      onClick={() => setBg(2)}
+                      src={BGs[bg]}
+                      ref={curBgRef}
                       alt="Hero Image"
-                      style={{ height: '100%', transform: 'scaleX(-1)' }}
-                      className="fade-in-text"
+                      style={{ height: '100%' }}
                     />
-                  } else {
-                    return <img
-                      src={image}
-                      alt="Hero Image"
-                      style={{ height: '100%', transform: 'scaleX(-1)' }}
-                      className="fade-in-text hidden"
-                    />
-                  }
-                })}
+                  </CSSTransition>
+                </SwitchTransition>
               </BGWrapper>
               <div className="absolute right-[5%] top-2 flex flex-col items-center">
                 <div className="bg-white w-px h-24 mb-12 mt-24"></div>

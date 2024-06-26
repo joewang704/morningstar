@@ -3,59 +3,86 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import { Instagram, Youtube, Facebook } from '../components/icons'
+import logo from '../images/logo.svg'
 
 const Container = styled.div`
-  background-color: rgb(239, 238, 234);
-  border-top: 1px solid #EFEFEF;
-  color: rgba(35, 33, 41, 0.7);
+  background-color: black;
+  color: white;
 `
 
 const Header = styled.div`
   margin-bottom: 1rem;
-  color: #444;
-  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #8B6F4A;
+  font-size: 18px;
 `
 
 const Icons = styled.div`
-  a {
-    margin-right: 8px;
+  img {
+    margin-right: 12px;
   }
 `
 
 const Footer = () => (
-  <Container className="mx-auto mt-20 p-10">
-    <div style={{ maxWidth: '800px', margin: 'auto' }}>
-      <div className="grid grid-cols-2">
+  <Container className="mx-auto p-10">
+    <div style={{ maxWidth: '1200px', margin: 'auto' }}>
+      <div className="grid grid-cols-4">
         <div>
-          <Header>Company</Header>
-          <div>
+          <img src={logo} />
+        </div>
+        <div>
+          <Header>Sitemap</Header>
+          <div className="mb-1">
+            <Link href="/">
+              Home
+            </Link>
+          </div>
+          <div className="mb-1">
             <Link href="/story">
-              About
+              About Us
             </Link>
           </div>
-          <div>
-            <Link href="/location">
-              Location
+          <div className="mb-1">
+            <Link href="/programs">
+              Programs
             </Link>
           </div>
-          <div>
+          <div className="mb-1">
             <Link href="/calendar">
-              Events
+              Calendar
             </Link>
           </div>
           <div>
-            <Link href="/policy">
-              Policy
+            <Link href="https://app.thestudiodirector.com/morningstardanceacademy" target="_blank">
+              Portal
             </Link>
           </div>
         </div>
         <div>
-          <Header>Contact Us</Header>
-          <Icons className="flex">
-            <Youtube width="2.78rem" height="2rem" />
-            <Instagram width="2rem" height="2rem" />
-            <Facebook width="2rem" height="2rem" />
+          <Header>Other</Header>
+          <div className="mb-1">
+            <Link href="/team">
+              Our Team
+            </Link>
+          </div>
+          <div className="mb-1">
+            <Link href="/location">
+              Location & Directions
+            </Link>
+          </div>
+          <div className="mb-1">
+            <Link href="/policy">
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+        <div>
+          <Header>Follow Us</Header>
+          <Icons className="flex items-center">
+            <Instagram width={30} />
+            <Facebook width={18} />
+            <Youtube width={35} />
           </Icons>
           <div className="mt-4">
             <Link href="/contact">

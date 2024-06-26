@@ -8,10 +8,8 @@ import bg1 from "../images/bg1_david.png"
 import bg2 from "../images/home_scroller_2.png"
 import bg3 from "../images/home_scroller_3.png"
 import bg4 from "../images/home_scroller_4.png"
+import { Facebook, Youtube, Instagram } from '../components/icons'
 import artisticDirector from "../images/xiaochen_hp.jpg"
-import fb from "../images/fb_hp.svg"
-import youtube from "../images/yt_hp.svg"
-import insta from "../images/insta_hp.svg"
 import twitter from "../images/twitter_hp.svg"
 import young from '../images/young_hp.jpg'
 import mid from '../images/mid_hp.png'
@@ -170,10 +168,9 @@ const IndexPage = () => {
               </BGWrapper>
               <div className="absolute right-[5%] top-2 flex flex-col items-center">
                 <div className="bg-white w-px h-24 mb-12 mt-24"></div>
-                <img src={fb} width={20} className="mb-12" />
-                <img src={twitter} width={35} className="mb-12" />
-                <img src={youtube} width={35} className="mb-12" />
-                <img src={insta} width={35} />
+                <Facebook width={20} className="mb-12" />
+                <Youtube width={35} className="mb-12" />
+                <Instagram width={35} />
               </div>
             </JumbotronRight>
           </JumbotronSection>

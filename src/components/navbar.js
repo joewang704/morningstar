@@ -55,7 +55,7 @@ const Navbar = ({ theme }) => {
   const { breakpoint } = useBreakpoints();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isLightTheme = theme === 'light';
+  const isLightTheme = false;
 
   if (typeof window === "undefined") {
     return (
@@ -67,7 +67,7 @@ const Navbar = ({ theme }) => {
 
   if (breakpoint === 'desktop') {
     return (
-      <MenuContainer className="flex justify-between w-full px-16 mt-4" isLightTheme={isLightTheme}>
+      <MenuContainer className="flex justify-between w-full px-16 py-2" isLightTheme={isLightTheme}>
         <Logo />
         <DesktopMenu className="flex items-center text-sm" isLightTheme={isLightTheme}>
           <Item link="">Home</Item>

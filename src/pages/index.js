@@ -248,13 +248,13 @@ const IndexPage = () => {
   )
 }
 
-const HeaderAccentText = ({ children, className }) => (
-  <p className={className + ' text-lg'} style={{ color: '#8B6F4A', letterSpacing: '.4em' }}>
+export const HeaderAccentText = ({ children, className }) => (
+  <p className={className + ' text-lg uppercase'} style={{ color: '#8B6F4A', letterSpacing: '.4em' }}>
     {children}
   </p>
 )
 
-const HeaderText = ({ children, className }) => (
+export const HeaderText = ({ children, className }) => (
   <p className={className + ''} style={{ fontSize: '48px', fontFamily: 'Playfair Display', fontWeight: 700 }}>
     {children}
   </p>

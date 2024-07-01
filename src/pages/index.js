@@ -8,6 +8,10 @@ import bg1 from "../images/bg1_david.png"
 import bg2 from "../images/home_scroller_2.png"
 import bg3 from "../images/home_scroller_3.png"
 import bg4 from "../images/home_scroller_4.png"
+import award1 from '../images/award1.png'
+import award2 from '../images/award2.png'
+import award3 from '../images/award3.png'
+import award4 from '../images/award4.png'
 import { Facebook, Youtube, Instagram } from '../components/icons'
 import artisticDirector from "../images/xiaochen_hp.jpg"
 import twitter from "../images/twitter_hp.svg"
@@ -94,6 +98,14 @@ const AwardsSection = styled.div`
   background-color: white;
   text-align: center;
 `
+
+const Awards = styled.div`
+  img {
+    display: inline-block;
+    margin: 0 32px;
+    opacity: .8;
+  }
+`;
 
 const BGs = [bg1, bg2, bg3, bg4]
 const Gradient1BGs = [0]
@@ -216,7 +228,6 @@ const IndexPage = () => {
                   <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
                 </div>
               </ProgramsCarouselImages>
-              {/* <IconWrapper className="p-4"><Right /></IconWrapper> */}
             </ProgramsCarousel>
             <Button className="mt-12">View Details</Button>
           </ProgramsSection>
@@ -224,11 +235,12 @@ const IndexPage = () => {
                 <HeaderAccentText className="mb-2">AWARDS</HeaderAccentText>
                 <HeaderText>Competitions We've Won</HeaderText>
                 <ProgramsCarousel className="mt-12">
-                  <ProgramsCarouselImages>
-                    <div className="bg-white rounded" style={{ height: '100px', width: '32%' }}>Placeholder</div>
-                    <div className="bg-white rounded" style={{ height: '100px', width: '32%' }}>Placeholder</div>
-                    <div className="bg-white rounded" style={{ height: '100px', width: '32%' }}>Placeholder</div>
-                  </ProgramsCarouselImages>
+                  <Awards>
+                    <img src={award1} />
+                    <img src={award2} />
+                    <img src={award3} />
+                    <img src={award4} />
+                  </Awards>
                 </ProgramsCarousel>
           </AwardsSection>
       </Container>

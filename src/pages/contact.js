@@ -19,6 +19,12 @@ const Right = styled.div`
   width: 50%;
 `
 
+const Icons = styled.div`
+  img {
+    filter: invert(100%);
+  }
+`
+
 const ContactPage = () => {
   return (
     <Layout>
@@ -39,12 +45,12 @@ const ContactPage = () => {
             </iframe>
           </Left>
           <Right>
-            {/* <div className="mx-auto flex justify-center mt-10 [&>a]:mx-2">
-              <Youtube width="2.78rem" height="2rem" />
-              <Instagram width="2rem" height="2rem" />
-              <Facebook width="2rem" height="2rem" />
-            </div> */}
             <ContactForm />
+            <Icons className="mx-auto flex justify-center items-center mt-10 [&>a]:mx-2">
+              <Instagram />
+              <Facebook />
+              <Youtube width={45} />
+            </Icons>
           </Right>
         </Content>
       </div>
@@ -60,7 +66,7 @@ const ContactForm = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex flex-col max-w-lg m-auto items-start">
+      <form onSubmit={handleSubmit} className="flex flex-col max-w-lg m-auto">
         <label htmlFor="email">
           Your Email
         </label>

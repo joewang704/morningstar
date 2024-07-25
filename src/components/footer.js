@@ -67,11 +67,6 @@ const Footer = () => (
             </Link>
           </div>
           <div className="mb-1">
-            <Link href="/location">
-              Location & Directions
-            </Link>
-          </div>
-          <div className="mb-1">
             <Link href="/policy">
               Privacy Policy
             </Link>

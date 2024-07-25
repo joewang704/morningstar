@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import Navbar from '../components/navbar'
 import { Heading, Button } from '../components/styles'
 import Layout from '../components/layout'
+import { HeaderAccentText, HeaderText } from "."
 
 const programs = [
   {
@@ -116,17 +117,16 @@ const Container = styled.div`
   }
 `;
 
-const Accordion = ({ title, children }) => {
+const Accordion = ({ title, subtitle, children }) => {
   const [open, setOpen] = useState(true);
 
   return (
     <div>
       <Container onClick={() => setOpen(!open)}>
-        {/* <span style={{ fontSize: '28px', fontFamily: 'Belgiano', letterSpacing: '.07rem', textTransform: 'uppercase' }}>{title}</span> */}
-        <div className="ml-8 mt-4 text-3xl" style={{ fontWeight: 300, fontFamily: 'Belgiano', letterSpacing: '.04rem' }}>{title}</div>
+        <HeaderText>{title}</HeaderText>
+        <p className="text-stone-600 text-lg mt-5 ml-3">{subtitle}</p>
         {children && <i className={`indicator glyphicon chevron-${open ? 'down' : 'up'}`}><span className="sp-1"></span><span class="sp-2"></span></i>}
       </Container>
-      <hr className="mt-1" />
       {open && children}
     </div>
   )
@@ -142,16 +142,99 @@ const ProgramItem = ({ title, description, link }) => {
   )
 }
 
-const BG = styled.div`
+const PageContainer = styled.div`
+  ul {
+    list-style: inside;
+  }
 `
 
 const ProgramsPage = () => {
   return (
     <Layout>
       <Navbar />
-      <BG className="relative text-black py-12">
-        <Heading>Our programs</Heading>
-        <div className="grid grid-cols-1">
+      <PageContainer className="relative text-black p-12">
+        <HeaderAccentText className="mb-2">OUR PROGRAMS</HeaderAccentText>
+        <Accordion title="Young Dancer Program" subtitle="(Beginner - Level 3)">
+          <br />
+          <p className="text-stone-700">Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary. Beginner is 1 class per week. Starting from Level 1, there will be Chinese Folk class in addition to ballet. Starting Level 3 classes will be TWICE a week, Chinese Folk only on the weekend.</p>
+          <br />
+          <p className="font-bold text-3xl mt-1 mb-4">Beginner</p>
+          <div className="flex">
+            <div className="mr-16">
+              <p className="text-lg font-bold">Schedule</p>
+              <ul>
+                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
+                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-bold">Tuition</p>
+              <ul>
+                <li>Semester tuition: $480</li>
+                <li>Performance fee: $90</li>
+                <li>Monthly 5 Installments: $XX</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <p className="font-bold text-3xl mt-1 mb-4">Level 1</p>
+          <div className="flex">
+            <div className="mr-16">
+              <p className="text-lg font-bold">Schedule</p>
+              <ul>
+                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
+                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-bold">Tuition</p>
+              <ul>
+                <li>Semester tuition: $480</li>
+                <li>Performance fee: $90</li>
+                <li>Monthly 5 Installments: $XX</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <p className="font-bold text-3xl mt-1 mb-4">Level 2</p>
+          <div className="flex">
+            <div className="mr-16">
+              <p className="text-lg font-bold">Schedule</p>
+              <ul>
+                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
+                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-bold">Tuition</p>
+              <ul>
+                <li>Semester tuition: $480</li>
+                <li>Performance fee: $90</li>
+                <li>Monthly 5 Installments: $XX</li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <p className="font-bold text-3xl mt-1 mb-4">Level 3</p>
+          <div className="flex">
+            <div className="mr-16">
+              <p className="text-lg font-bold">Schedule</p>
+              <ul>
+                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
+                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg font-bold">Tuition</p>
+              <ul>
+                <li>Semester tuition: $480</li>
+                <li>Performance fee: $90</li>
+                <li>Monthly 5 Installments: $XX</li>
+              </ul>
+            </div>
+          </div>
+        </Accordion>
+        {/* <div className="grid grid-cols-1">
           {programs.map(props => <Accordion {...props} children={
             props.subprograms ? (
               <div className="grid grid-cols-2 p-4 bg-gradient-to-b from-gray-50 via-gray-50 to-transparent">
@@ -159,21 +242,8 @@ const ProgramsPage = () => {
               </div>
             ) : undefined
           } />)}
-        </div>
-      </BG>
-      {/* <div id="stars"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-      <div id="title"></div>
-      <Navbar theme="dark" />
-        <div style={{ color: 'white', padding: '48px' }}>
-        <Heading>Our programs</Heading>
-        <div className="grid grid-cols-1">
-          {programs.map(props => <Accordion {...props} children={
-            props.subprograms && props.subprograms.map(p => <ProgramItem {...p} />)
-          } />)}
-        </div>
         </div> */}
+      </PageContainer>
     </Layout>
   )
 }

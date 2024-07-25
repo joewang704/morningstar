@@ -67,7 +67,6 @@ const Navbar = () => {
           <Item sub={[
             { title: 'Our Team', link: 'team' },
             { title: 'Our Story', link: 'story' },
-            { title: 'Location & Directions', link: 'location' },
           ]}>About Us</Item>
           <Item link="programs">Programs</Item>
           <Item sub={[
@@ -92,7 +91,6 @@ const Navbar = () => {
           <MobileItem sub={[
             { title: 'Our Team', link: 'team' },
             { title: 'Our Story', link: 'story' },
-            { title: 'Location & Directions', link: 'location' },
           ]}>About Us</MobileItem>
           <MobileItem link="programs">Programs</MobileItem>
           <MobileItem sub={[

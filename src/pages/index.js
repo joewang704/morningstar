@@ -213,19 +213,19 @@ const IndexPage = () => {
                   <div style={{ height: '320px' }}><img src={young} className="rounded" /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Young Dancer Program</h1>
-                    <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                    <p className="text-sm">Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary.</p>
                 </div>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }}>
                   <div style={{ height: '320px' }}><img src={mid} /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Intermediate Dancer Program</h1>
-                  <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                  <p className="text-sm"> Structured ballet class focusing on proper posture, technique, and vocabulary with introduction of the use of ballet barre in Level 4. Level 5 students will be introduced to contemporary style dance.</p>
                 </div>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }}>
                   <div style={{ height: '320px' }}><img src={adv} /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Advanced Dancer Program</h1>
-                  <p className="text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                  <p className="text-sm">More fast paced and challenging movement within all 3 styles of dance. Starting Level 8 students will be introduced to pointe shoes.</p>
                 </div>
               </ProgramsCarouselImages>
             </ProgramsCarousel>

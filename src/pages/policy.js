@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 const PolicyPage = () => {
   return (
     <Layout>
-      <Navbar theme="light" />
+      <Navbar />
       <div className="relative text-black p-12">
         <Heading>School Regulation</Heading>
           <p>As students, have agreed in the school registration, school will provide a fair and healthy environment for students. Students should learn dancing skills, beauty, confidence, respect, and responsibility.</p>

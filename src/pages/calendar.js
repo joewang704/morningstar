@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 const CalendarPage = () => {
   return (
     <Layout>
-      <Navbar theme="light" />
+      <Navbar />
       <div className="relative text-black p-12">
         <Heading>Calendar</Heading>
         <div>Aug 21, Recital</div>

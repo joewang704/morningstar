@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 const StoryPage = () => {
   return (
     <Layout>
-      <Navbar theme="light" />
+      <Navbar />
       <div className="relative text-black p-12">
         <h1 style={{ fontFamily: 'Belgiano' }}
           className="text-headlineorg text-6xl whitespace-nowrap mb-12 text-center">Learn our story</h1>

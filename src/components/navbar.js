@@ -8,31 +8,25 @@ import { Button } from '../components/styles'
 import Menu from '../images/menu.js';
 import logo from '../images/logo.svg'
 
-const lightBorder = '#EFEFEF'
-const lightFont = '#666'
-const darkFont = '#FFF'
+const submenuBorder = '#4E4E4E'
+const submenuGray = '#292929'
 
 const MenuContainer = styled.div`
-  ${({ isLightTheme }) => ({
-    color: isLightTheme ? lightFont : darkFont,
-  })}
+  color: #eee;
   background-color: black;
 `;
 
 const DesktopMenu = styled.div`
-  ${({ isLightTheme }) => ({
-    backgroundColor: isLightTheme ? 'white' : 'black',
-  })}
-  div {
+  & > div {
     &:hover {
-      ${({ isLightTheme }) => ({ color: isLightTheme ? '#aaa' : '#aaa' })}
+      color: #bbb;
     }
   }
   .submenu {
-    ${({ isLightTheme }) => ({
-      backgroundColor: isLightTheme ? 'white' : '#111',
-      border: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
-    })}
+    color: #ddd;
+    background-color: ${submenuGray};
+    border: 1px solid ${submenuBorder};
+    border-radius: 4px;
   }
 `;
 
@@ -42,7 +36,6 @@ const MobileMenu = styled.div`
   position: absolute;
   ${({ isLightTheme }) => ({
     backgroundColor: isLightTheme ? 'white' : 'black',
-    border: `1px solid ${isLightTheme ? lightBorder : colors.gray[600]}`,
   })}
   div {
     &:hover {
@@ -51,7 +44,7 @@ const MobileMenu = styled.div`
   }
 `;
 
-const Navbar = ({ theme }) => {
+const Navbar = () => {
   const { breakpoint } = useBreakpoints();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -59,7 +52,7 @@ const Navbar = ({ theme }) => {
 
   if (typeof window === "undefined") {
     return (
-      <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
+      <MenuContainer className="flex justify-between w-full px-8">
         <Logo />
       </MenuContainer>
     )
@@ -67,9 +60,9 @@ const Navbar = ({ theme }) => {
 
   if (breakpoint === 'desktop') {
     return (
-      <MenuContainer className="flex justify-between w-full px-16 py-2" isLightTheme={isLightTheme}>
+      <MenuContainer className="flex justify-between w-full px-16 py-2">
         <Logo />
-        <DesktopMenu className="flex items-center text-sm" isLightTheme={isLightTheme}>
+        <DesktopMenu className="flex items-center text-md">
           <Item link="">Home</Item>
           <Item sub={[
             { title: 'Our Team', link: 'team' },
@@ -91,7 +84,7 @@ const Navbar = ({ theme }) => {
   }
 
   return (
-    <MenuContainer className="flex justify-between w-full px-8" isLightTheme={isLightTheme}>
+    <MenuContainer className="flex justify-between w-full px-8">
       <Logo />
       <div className="relative py-4">
         <div onClick={() => setMobileMenuOpen(!mobileMenuOpen)}><Menu color={isLightTheme ? 'black' : 'white'} /></div>
@@ -142,8 +135,8 @@ const Submenu = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 96px;
-  left: 0;
+  top: 100px;
+  left: 8px;
   right: 0;
   white-space: nowrap;
   z-index: 1;
@@ -169,16 +162,22 @@ const MobileSubmenu = styled.div`
   }
 `
 
+const SubmenuItem = styled.div`
+  &:hover {
+    background-color: #4E4E4E;
+  }
+`;
+
 const Item = ({ children, sub, link, external }) => {
   const inner = (
-    <Container className="px-4 cursor-pointer transition-colors">
+    <Container className="px-6 cursor-pointer transition-colors">
       {children}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
           <Link to={'/' + link} key={link}>
-            <div className="text-gray-600">
+            <SubmenuItem>
                 {title}
-            </div>
+            </SubmenuItem>
           </Link>
         ))}
       </Submenu>}

@@ -124,7 +124,7 @@ const TeamPage = () => {
 
   return (
     <Layout>
-      <Navbar theme="light" />
+      <Navbar />
       <Container className="relative text-black p-12">
         <HeaderAccentText className="mb-2">OUR TEAM</HeaderAccentText>
         {PERSON_MAP.map(({ name, img, desc }, i) => {

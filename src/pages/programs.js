@@ -148,7 +148,7 @@ const BG = styled.div`
 const ProgramsPage = () => {
   return (
     <Layout>
-      <Navbar theme="light" />
+      <Navbar />
       <BG className="relative text-black py-12">
         <Heading>Our programs</Heading>
         <div className="grid grid-cols-1">

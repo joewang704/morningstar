@@ -186,7 +186,7 @@ const IndexPage = () => {
               </div>
             </JumbotronRight>
           </JumbotronSection>
-          <DirectorSection className="px-24 py-36">
+          <DirectorSection className="px-24 py-24">
             <div className="flex">
               <div className="w-1/2">
                 <HeaderAccentText className="mb-2">MEET OUR</HeaderAccentText>
@@ -229,7 +229,7 @@ const IndexPage = () => {
                 </div>
               </ProgramsCarouselImages>
             </ProgramsCarousel>
-            <Button className="mt-12">View Details</Button>
+            <Link to="/programs"><Button className="mt-12">View Programs</Button></Link>
           </ProgramsSection>
           <AwardsSection className="px-24 py-36">
                 <HeaderAccentText className="mb-2">AWARDS</HeaderAccentText>

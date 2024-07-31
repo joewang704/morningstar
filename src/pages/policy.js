@@ -10,6 +10,9 @@ const Container = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 32px;
+  li {
+    margin-top: 4px;
+  }
 `
 
 const PolicyPage = () => {
@@ -23,21 +26,21 @@ const PolicyPage = () => {
         <p>As students, have agreed in the school registration, school will provide a fair and healthy environment for students. Students should learn dancing skills, beauty, confidence, respect, and responsibility.</p>
         <br />
         <ul className="list-disc ml-4">
-          <li>All students must complete required class hours before moving up to the next level except in some special cases which are approved by the school.</li>
-          <li>Any students who join the class or try class, must make a registration before taking any class.</li>
-          <li>Students must wear school required leotard and required ballet shoes in the class</li>
-          <li>Students have required hair style in the class. must make a ballet hair bun on back, no hair around face.</li>
-          <li>Student should come to the class on time. recommended to arrive at least 5-10 minutes earlier to get ready for the class. come to class late, must wait aside of the classroom until the class teacher allows you to join in.</li>
-          <li>Students should be No Jewelry allowed in the class.</li>
-          <li>Students should be No talking while the teacher is talking on the class.</li>
-          <li>Students should not make noise, speak loudly, play or run in the classroom and hallway, especially along any glass window in the school.</li>
-          <li>Student should turn off cell phone during the class (not just silence or put on vibrate)</li>
-          <li>No video or take picture in class expect you have permission from your class teacher or school</li>
-          <li>Student always stay in your class, if you need leave early, please get permission from your class teacher</li>
-          <li>Students should keep the school area clean, no littering.</li>
-          <li>Students should not bring any valuable personal items to the school or leave them in the dressing room. The dance School will not be held responsible for any students and their personal welfare.</li>
-          <li>NO food and drink (expect water) allowed in the change room and classroom.</li>
-          <li>Be courteous and respectful, giving applaud and thank to teacher at end of class.</li>
+          <li>Students must complete required class hours before moving up to the next level - except in some special cases which approved by the school</li>
+          <li>Students must register before attending any class</li>
+          <li>Students must wear the school-required leotard and ballet shoes in class</li>
+          <li>Students have a required hair style in class. Hair must be tied into a ballet bun in the back, with no hair around the face</li>
+          <li>Students should arrive on time. It is recommended to arrive at least 5-10 minutes early to get ready. Those who come to class late must wait on the side of the classroom until the teacher signals you in</li>
+          <li>Students should not wear jewelry to class</li>
+          <li>Students should remain quiet while the teacher is talking in class</li>
+          <li>Students should not make noise, speak loudly, or play/run in the classroom and hallway - especially along any glass window in the school</li>
+          <li>Students should turn off their cell phones during class - not just put it on just silent/vibrate</li>
+          <li>No videos or pictures may be taken in class without explicit permission from the class teacher or school</li>
+          <li>Students always stay in their respective class. If you need leave early, please get permission from your class teacher</li>
+          <li>Students should keep the school area clean. No littering.</li>
+          <li>Students should not bring any valuable personal items to school or leave them in the dressing room. The school will not be held responsible for students' personal items.</li>
+          <li>No food and drink (except water) allowed in the changing room and classroom.</li>
+          <li>Be courteous and respectful.</li>
         </ul>
         <HeaderAccentText className="mb-2 mt-16">WAIVER</HeaderAccentText>
         <HeaderText>Liability Agreement</HeaderText>

@@ -8,13 +8,27 @@ import bg1 from "../images/bg1_david.png"
 import bg2 from "../images/home_scroller_2.png"
 import bg3 from "../images/home_scroller_3.png"
 import bg4 from "../images/home_scroller_4.png"
-import award1 from '../images/award1.png'
-import award2 from '../images/award2.png'
-import award3 from '../images/award3.png'
-import award4 from '../images/award4.png'
+import prixAward from '../images/home/prix_award.png'
+import helsinkiAward from '../images/home/helsinki_award.png'
+import usaibcAward from '../images/home/usaibc_award.png'
+import youthAward from '../images/home/youth_award.png'
+import bgvpAward from '../images/home/bgvp_award.png'
+import abcAward from '../images/home/abc_award.png'
+import wbcAward from '../images/home/wbc_award.png'
+import beijingAward from '../images/home/beijing_award.png'
+import ubcAward from '../images/home/ubc_award.png'
+import showAward from '../images/home/show_award.png'
+
+import harvard from '../images/home/harvard.svg'
+import stanford from '../images/home/stanford.png'
+import columbia from '../images/home/columbia.png'
+import mit from '../images/home/mit.png'
+import princeton from '../images/home/princeton.png'
+import brown from '../images/home/brown.png'
+import penn from '../images/home/penn.png'
+
 import { Facebook, Youtube, Instagram } from '../components/icons'
 import artisticDirector from "../images/xiaochen_hp.jpg"
-import twitter from "../images/twitter_hp.svg"
 import young from '../images/young_hp.jpg'
 import mid from '../images/mid_hp.png'
 import adv from '../images/adv_hp.png'
@@ -25,6 +39,8 @@ const Container = styled.div`
   font-family: Inter;
   background-color: white;
 `;
+
+const gold = '#8B6F4A';
 
 // Jumbotron section
 const JumbotronSection = styled.div`
@@ -92,6 +108,12 @@ const ProgramsCarouselImages = styled.div`
   flex-shrink: 0;
 `;
 
+const ProgramLink = styled(Link)`
+  margin-top: 24px;
+  color: ${gold};
+  cursor: pointer;
+`;
+
 // Awards Section
 
 const AwardsSection = styled.div`
@@ -104,8 +126,17 @@ const Awards = styled.div`
     display: inline-block;
     margin: 0 32px;
     opacity: .8;
+    width: 200px;
   }
 `;
+
+// Alumni Section
+
+const AlumniSection = styled.div`
+  background-color: #efefef;
+  color: black;
+  text-align: center;
+`
 
 const BGs = [bg1, bg2, bg3, bg4]
 const Gradient1BGs = [0]
@@ -131,7 +162,7 @@ const IndexPage = () => {
                   className="fade-in-text text-6xl whitespace-nowrap">We Provide Professional</h1>
                 <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
                   className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
-                <p className="fade-in-text mt-6 mb-12 font-light text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p className="fade-in-text mt-6 mb-12 font-light text-lg">Receive top-quality dance instruction at Atlanta's premier dance academy</p>
                 <Button>Explore Now</Button>
               </Text>
               <div className="bottom-12 mb-12 ml-12 lg:ml-24 text-xl flex items-center font-extralight">
@@ -207,58 +238,83 @@ const IndexPage = () => {
             <HeaderAccentText className="mb-2">PROGRAMS</HeaderAccentText>
             <HeaderText>Programs We Offer</HeaderText>
             <ProgramsCarousel className="mt-12">
-              {/* <IconWrapper className="p-4"><Left /></IconWrapper> */}
               <ProgramsCarouselImages>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }} >
                   <div style={{ height: '320px' }}><img src={young} className="rounded" /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Young Dancer Program</h1>
-                    <p className="text-sm">Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary.</p>
+                  <p className="text-sm">Empowering kids with dance: building body awareness, rhythm, flexibility, and confidence through ballet.</p>
+                  <ProgramLink to="/programs#young-dancer-program">View Details &#8594;</ProgramLink>
                 </div>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }}>
                   <div style={{ height: '320px' }}><img src={mid} /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Intermediate Dancer Program</h1>
-                  <p className="text-sm"> Structured ballet class focusing on proper posture, technique, and vocabulary with introduction of the use of ballet barre in Level 4. Level 5 students will be introduced to contemporary style dance.</p>
+                  <p className="text-sm">Focusing on posture, technique, barre use, and contemporary dance.</p>
+                  <ProgramLink to="/programs#intermediate-dancer-program">View Details &#8594;</ProgramLink>
                 </div>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }}>
                   <div style={{ height: '320px' }}><img src={adv} /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Advanced Dancer Program</h1>
-                  <p className="text-sm">More fast paced and challenging movement within all 3 styles of dance. Starting Level 8 students will be introduced to pointe shoes.</p>
+                  <p className="text-sm">Intense, fast-paced dance classes across all styles of dance. Includes our pre-professional class.</p>
+                  <ProgramLink to="/programs#advanced-dancer-program">View Details &#8594;</ProgramLink>
                 </div>
               </ProgramsCarouselImages>
             </ProgramsCarousel>
-            <Link to="/programs"><Button className="mt-12">View Programs</Button></Link>
+            <Link to="/contact"><Button className="mt-12">Enroll Now</Button></Link>
           </ProgramsSection>
           <AwardsSection className="px-24 py-36">
                 <HeaderAccentText className="mb-2">AWARDS</HeaderAccentText>
-                <HeaderText>Competitions We've Won</HeaderText>
+                <HeaderText>Competitions</HeaderText>
                 <ProgramsCarousel className="mt-12">
                   <Awards>
-                    <img src={award1} />
-                    <img src={award2} />
-                    <img src={award3} />
-                    <img src={award4} />
+                    <img src={prixAward} />
+                    <img src={helsinkiAward} />
+                    <img src={usaibcAward} />
+                    <img src={youthAward} />
+                    <img src={bgvpAward} />
+                    <br />
+                    <img src={abcAward} style={{ filter: 'invert(1)', width: '280px' }} />
+                    <img src={wbcAward} />
+                    <img src={beijingAward} style={{ width: '320px' }} />
+                    <img src={ubcAward} />
+                    <img src={showAward} />
                   </Awards>
                 </ProgramsCarousel>
           </AwardsSection>
+          <AlumniSection className="px-24 py-36">
+                <HeaderAccentText className="mb-2">ALUMNI</HeaderAccentText>
+                <HeaderText>Our Success Stories</HeaderText>
+                <ProgramsCarousel className="mt-12">
+                  <Awards>
+                    <img src={harvard} />
+                    <img src={stanford} />
+                    <img src={mit} />
+                    <img src={columbia} />
+                    <br />
+                    <img src={princeton} />
+                    <img src={brown} />
+                    <img src={penn} />
+                  </Awards>
+                </ProgramsCarousel>
+          </AlumniSection>
       </Container>
     </Layout>
   )
 }
 
 export const HeaderAccentText = ({ children, className }) => (
-  <p className={className + ' text-lg uppercase'} style={{ color: '#8B6F4A', letterSpacing: '.4em' }}>
+  <p className={className + ' text-lg uppercase'} style={{ color: gold, letterSpacing: '.4em' }}>
     {children}
   </p>
 )
 
-export const HeaderText = ({ children, className }) => (
-  <p className={className + ''} style={{ fontSize: '48px', fontFamily: 'Playfair Display', fontWeight: 700 }}>
-    {children}
-  </p>
-)
+export const HeaderText = styled.p`
+  font-size: 48px;
+  font-family: Playfair Display;
+  font-weight: 700;
+`
 
 export default IndexPage
 

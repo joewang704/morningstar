@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import styled from '@emotion/styled';
 import { Link } from "gatsby"
-import colors from 'tailwindcss/colors';
 
 import { useBreakpoints } from "../utils/breakpoints";
-import { Button } from '../components/styles'
+import { BorderButton, Button } from '../components/styles'
 import Menu from '../images/menu.js';
 import logo from '../images/logo.svg'
 
@@ -73,9 +72,11 @@ const Navbar = () => {
             { title: 'Calendar', link: 'calendar' },
             { title: 'School Policy & Waiver', link: 'policy' },
           ]}>School Info</Item>
-          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external>Portal</Item>
           <Item link='contact'>
-            <Button>Contact Us</Button>
+            <Button>Enroll Now</Button>
+          </Item>
+          <Item link='https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login' external className="pl-0">
+            <BorderButton>Student Login</BorderButton>
           </Item>
         </DesktopMenu>
       </MenuContainer>
@@ -166,9 +167,9 @@ const SubmenuItem = styled.div`
   }
 `;
 
-const Item = ({ children, sub, link, external }) => {
+const Item = ({ children, sub, link, external, className }) => {
   const inner = (
-    <Container className="px-6 cursor-pointer transition-colors">
+    <Container className={`px-6 cursor-pointer transition-colors ${className}`}>
       {children}
       {sub && <Submenu className="submenu">
         {sub.map(({ title, link }) => (
@@ -182,7 +183,7 @@ const Item = ({ children, sub, link, external }) => {
     </Container>
   )
   if (external) {
-    return <a href={link} target="_blank">{inner}</a>
+    return <a href={link} target="_blank" className={className}>{inner}</a>
   }
   return (link || link === '') ? <Link to={'/' + link}>{inner}</Link> : <>{inner}</>
 }

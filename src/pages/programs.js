@@ -1,109 +1,171 @@
 import React, { useState } from "react"
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
 import Navbar from '../components/navbar'
-import { Heading, Button } from '../components/styles'
 import Layout from '../components/layout'
 import { HeaderAccentText, HeaderText } from "."
 
-const programs = [
+const CLASS_INFO = [
   {
     title: 'Young Dancer Program',
-    description: 'Test',
-    link: '',
-    subprograms: [
+    subtext: '(Beginner - Level 3)',
+    description: 'Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary. Beginner is 1 class per week. Starting from Level 1, there will be Chinese Folk class in addition to ballet. Starting Level 3 classes will be TWICE a week, Chinese Folk only on the weekend.',
+    classes: [
       {
-        title: 'Beginner Level',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'young_beginner',
+        title: 'Beginner',
+        schedule: [
+          {
+            name: 'Beginner A',
+            description: 'Saturday 12:45pm (1 hour)',
+          },
+          {
+            name: 'Beginner B',
+            description: 'Sunday 12:45pm (1 hour)',
+          },
+        ]
       },
       {
         title: 'Level 1',
-        description: 'This class builds upon fundamental techniques, refining posture, alignment, and turnout while introducing more intricate ballet vocabulary and movements.',
-        link: 'young_1',
+        schedule: [
+          {
+            name: 'Level 1 A',
+            description: 'Saturday 5pm (1.5 hours)',
+          },
+          {
+            name: 'Level 1 B',
+            description: 'Sunday 5pm (1.5 hours)',
+          },
+        ]
       },
       {
         title: 'Level 2',
-        description: 'In this class, we delve deeper into the art of ballet, refining and expanding upon the foundational techniques acquired earlier. Students will tackle more intricate combinations at the barre and center, honing their balance, control, and artistic expression.',
-        link: 'young_2',
+        schedule: [
+          {
+            name: 'Level 2 A',
+            description: 'Saturday 3:30pm (1.5 hours)',
+          },
+          {
+            name: 'Level 2 B',
+            description: 'Sunday 3:30 pm (1.5 hours)',
+          },
+          {
+            name: 'Level 2 D',
+            description: 'Sunday 5:00pm (1.5 hours)',
+          },
+        ]
       },
       {
         title: 'Level 3',
-        description: 'In this class, we delve deeper into the art of ballet, refining and expanding upon the foundational techniques acquired earlier. Students will tackle more intricate combinations at the barre and center, honing their balance, control, and artistic expression.',
-        link: 'young_3',
+        schedule: [
+          {
+            name: 'Level 3 A',
+            description: 'Saturday 3:30pm (1.5 hours), Wednesday 6:30pm (1 hour)',
+          },
+          {
+            name: 'Level 3 B',
+            description: 'Sunday 3:30 pm (1.5 hours), Friday 6:30pm (1 hour)',
+          },
+          {
+            name: 'Level 3 C',
+            description: 'Sunday 5:00pm (1.5 hours), Thursday 6:30pm (1 hour)',
+          },
+        ]
       },
     ]
   },
   {
     title: 'Intermediate Dancer Program',
-    description: 'Test',
-    link: '',
-    subprograms: [
+    subtext: '(Level 4 - Level 7)',
+    description: 'Structured ballet class focusing on proper posture, technique, and vocabulary with introduction of the use of ballet barre in Level 4. Level 5 students will be introduced to contemporary style dance. Level 5 and above learn 3 styles - Ballet, Folk, Contemporary.',
+    classes: [
       {
         title: 'Level 4',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        schedule: [
+          {
+            name: 'Level 4 A',
+            description: 'Saturday 2:45pm (1.5 hours), Wednesday 6:30pm (1 hour)',
+          },
+          {
+            name: 'Level 4 B',
+            description: 'Sunday 2:45pm (1.5 hours), Friday 6:30pm (1 hour)',
+          },
+        ]
       },
       {
         title: 'Level 5',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        schedule: [
+          {
+            name: 'Level 5 A',
+            description: 'Saturday 1pm (2.5 hours), Tuesday 6:30pm (1 hour)',
+          },
+          {
+            name: 'Level 5 B',
+            description: 'Sunday 1pm (2.5 hours), Thursday 6:30pm (1 hour)',
+          },
+        ]
       },
       {
         title: 'Level 6',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        schedule: [
+          {
+            name: 'Level 6 A',
+            description: 'Saturday 1pm (2.5 hours), Wednesday 7:30pm (1 hour)',
+          },
+        ]
       },
       {
         title: 'Level 7',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        schedule: [
+          {
+            name: 'Level 7 B',
+            description: 'Sunday 9am (3.5 hours), Thursday 7:30pm (1.25 hours)',
+          },
+        ]
       },
     ]
   },
   {
     title: 'Advanced Dancer Program',
-    description: 'Test',
-    link: '',
-    subprograms: [
+    subtext: '(Level 8 - Pre-Professional)',
+    description: 'More fast paced and challenging movement within all 3 styles of dance. Starting Level 8 students will be introduced to pointe shoes (also dependent on level of strength per student, may only advance to pointe with instructors recommendation.)',
+    classes: [
       {
-        title: 'Level 4',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        title: 'Level 8',
+        schedule: [
+          {
+            name: 'Level 8 A',
+            description: 'Saturday 9am (3 hours), Tuesday 7:30pm (1.5 hours)',
+          },
+        ]
       },
       {
-        title: 'Level 5',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        title: 'Level 9',
+        schedule: [
+          {
+            name: 'Level 9 A',
+            description: 'Saturday 9am (3.5 hours), Tuesday 7:30pm (1.5 hours)',
+          },
+          {
+            name: 'Level 9 B',
+            description: 'Sunday 9am (3.5 hours), Thursday 7:30pm (1.5 hours)',
+          },
+        ]
       },
       {
-        title: 'Level 6',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
-      },
-      {
-        title: 'Level 7',
-        description: 'Designed for individuals with little to no prior experience. Discover fundamental techniques, ballet vocabulary, and graceful movements while developing body awareness and creative expression.',
-        link: 'intermediate_4',
+        title: 'Pre-Professional',
+        schedule: [
+          {
+            name: 'Pre-Professional A',
+            description: 'Saturday 9am (3.5 hours), Wednesday 7:30pm (2.5 hours)',
+          },
+          {
+            name: 'Pre-Professional B',
+            description: 'Sunday 9am (3.5 hours), Friday 7:30pm (2.5 hours)',
+          },
+        ]
       },
     ]
-  },
-  {
-    title: 'Special Training',
-    description: 'Test',
-    link: '',
-  },
-  {
-    title: 'Summer Intensive',
-    description: 'Test',
-    link: '',
-  },
-  {
-    title: 'Adult Program',
-    description: 'Test',
-    link: '',
-  },
+  }
 ]
 
 const Container = styled.div`
@@ -123,7 +185,7 @@ const Accordion = ({ title, subtitle, children }) => {
   return (
     <div>
       <Container onClick={() => setOpen(!open)}>
-        <HeaderText>{title}</HeaderText>
+        <HeaderText id={title.toLowerCase().split(' ').join('-')}>{title}</HeaderText>
         <p className="text-stone-600 text-lg mt-5 ml-3">{subtitle}</p>
         {children && <i className={`indicator glyphicon chevron-${open ? 'down' : 'up'}`}><span className="sp-1"></span><span class="sp-2"></span></i>}
       </Container>
@@ -132,17 +194,11 @@ const Accordion = ({ title, subtitle, children }) => {
   )
 }
 
-const ProgramItem = ({ title, description, link }) => {
-  return (
-    <div className="p-5 m-4 rounded bg-white shadow-lg">
-      <div className="mb-2 text-xl">{title}</div>
-      <div className="text-slate-500 mb-4 text-sm">{description}</div>
-      <Link to={link}><Button>Learn More</Button></Link>
-    </div>
-  )
-}
-
 const PageContainer = styled.div`
+  min-height: 430px;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 32px;
   ul {
     list-style: inside;
   }
@@ -154,95 +210,30 @@ const ProgramsPage = () => {
       <Navbar />
       <PageContainer className="relative text-black p-12">
         <HeaderAccentText className="mb-2">OUR PROGRAMS</HeaderAccentText>
-        <Accordion title="Young Dancer Program" subtitle="(Beginner - Level 3)">
-          <br />
-          <p className="text-stone-700">Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary. Beginner is 1 class per week. Starting from Level 1, there will be Chinese Folk class in addition to ballet. Starting Level 3 classes will be TWICE a week, Chinese Folk only on the weekend.</p>
-          <br />
-          <p className="font-bold text-3xl mt-1 mb-4">Beginner</p>
-          <div className="flex">
-            <div className="mr-16">
-              <p className="text-lg font-bold">Schedule</p>
-              <ul>
-                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
-                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-lg font-bold">Tuition</p>
-              <ul>
-                <li>Semester tuition: $480</li>
-                <li>Performance fee: $90</li>
-                <li>Monthly 5 Installments: $XX</li>
-              </ul>
-            </div>
-          </div>
-          <br />
-          <p className="font-bold text-3xl mt-1 mb-4">Level 1</p>
-          <div className="flex">
-            <div className="mr-16">
-              <p className="text-lg font-bold">Schedule</p>
-              <ul>
-                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
-                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-lg font-bold">Tuition</p>
-              <ul>
-                <li>Semester tuition: $480</li>
-                <li>Performance fee: $90</li>
-                <li>Monthly 5 Installments: $XX</li>
-              </ul>
-            </div>
-          </div>
-          <br />
-          <p className="font-bold text-3xl mt-1 mb-4">Level 2</p>
-          <div className="flex">
-            <div className="mr-16">
-              <p className="text-lg font-bold">Schedule</p>
-              <ul>
-                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
-                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-lg font-bold">Tuition</p>
-              <ul>
-                <li>Semester tuition: $480</li>
-                <li>Performance fee: $90</li>
-                <li>Monthly 5 Installments: $XX</li>
-              </ul>
-            </div>
-          </div>
-          <br />
-          <p className="font-bold text-3xl mt-1 mb-4">Level 3</p>
-          <div className="flex">
-            <div className="mr-16">
-              <p className="text-lg font-bold">Schedule</p>
-              <ul>
-                <li>Beginner A: Saturday 12:45pm (1 hour)</li>
-                <li>Beginner B: Sunday 12:45pm (1 hour)</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-lg font-bold">Tuition</p>
-              <ul>
-                <li>Semester tuition: $480</li>
-                <li>Performance fee: $90</li>
-                <li>Monthly 5 Installments: $XX</li>
-              </ul>
-            </div>
-          </div>
-        </Accordion>
-        {/* <div className="grid grid-cols-1">
-          {programs.map(props => <Accordion {...props} children={
-            props.subprograms ? (
-              <div className="grid grid-cols-2 p-4 bg-gradient-to-b from-gray-50 via-gray-50 to-transparent">
-                {props.subprograms.map(p => <ProgramItem {...p} />)}
-              </div>
-            ) : undefined
-          } />)}
-        </div> */}
+        {CLASS_INFO.map(({ title, subtext, description, classes }) => (
+          <Accordion title={title} subtitle={subtext}>
+            <br />
+            <p className="text-stone-700">{description}</p>
+            <br />
+            {classes.map(({ title, schedule }) => (
+              <>
+                <p className="font-bold text-3xl mt-1 mb-4">{title}</p>
+                <div className="flex">
+                  <div className="mr-16">
+                    <p className="text-lg font-bold">Schedule</p>
+                    <ul>
+                      {schedule.map(({ name, description }) => (
+                        <li>{name}: {description}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <br />
+              </>
+            ))}
+            <br /><br />
+          </Accordion>
+        ))}
       </PageContainer>
     </Layout>
   )

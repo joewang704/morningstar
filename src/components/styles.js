@@ -47,3 +47,23 @@ export const Button = ({ type, disabled, children, className }) => {
     </BtnContainer>
   )
 }
+const BorderBtnContainer = styled.button`
+  border-radius: 60px;
+  color: #fff;
+  border: 1px solid #fff;
+  &:hover {
+    background-color: #666;
+  }
+`
+
+export const BorderButton = ({ type, disabled, children, className }) => {
+  return (
+    <BorderBtnContainer
+      type={type}
+      disabled={disabled}
+      className={"py-3 px-8 " + className}
+    >
+      {children}
+    </BorderBtnContainer>
+  )
+}

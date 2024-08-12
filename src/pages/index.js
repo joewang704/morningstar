@@ -28,9 +28,9 @@ import brown from '../images/home/brown.png'
 import penn from '../images/home/penn.png'
 
 import { Facebook, Youtube, Instagram } from '../components/icons'
-import artisticDirector from "../images/xiaochen_hp.jpg"
+import artisticDirector from "../images/home/xiaochen.jpeg"
 import young from '../images/young_hp.jpg'
-import mid from '../images/mid_hp.png'
+import mid from '../images/home/intermediate_dancer.jpeg'
 import adv from '../images/adv_hp.png'
 import { DarkStyles, Button } from "../components/styles"
 import Layout from '../components/layout'
@@ -163,7 +163,7 @@ const IndexPage = () => {
                 <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
                   className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
                 <p className="fade-in-text mt-6 mb-12 font-light text-lg">Receive top-quality dance instruction at Atlanta's premier dance academy</p>
-                <Button>Explore Now</Button>
+                <Link to="team"><Button>Explore Now</Button></Link>
               </Text>
               <div className="bottom-12 mb-12 ml-12 lg:ml-24 text-xl flex items-center font-extralight">
                 {[0, 1, 2, 3].map(bgNum => {
@@ -230,7 +230,7 @@ const IndexPage = () => {
                 <Link to="/team"><Button>Read More</Button></Link>
               </div>
               <div className="w-1/2 text-center">
-                <img src={artisticDirector} className="ml-auto" />
+                <img src={artisticDirector} className="ml-auto rounded-md" />
               </div>
             </div>
           </DirectorSection>
@@ -247,7 +247,7 @@ const IndexPage = () => {
                   <ProgramLink to="/programs#young-dancer-program">View Details &#8594;</ProgramLink>
                 </div>
                 <div className="flex flex-col m-4" style={{ maxWidth: '455px' }}>
-                  <div style={{ height: '320px' }}><img src={mid} /></div>
+                  <div style={{ height: '320px' }}><img src={mid} className="rounded" /></div>
                   <h1 style={{ fontFamily: 'Playfair Display' }}
                     className="text-3xl font-bold mb-4">Intermediate Dancer Program</h1>
                   <p className="text-sm">Focusing on posture, technique, barre use, and contemporary dance.</p>

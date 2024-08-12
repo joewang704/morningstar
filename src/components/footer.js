@@ -67,6 +67,11 @@ const Footer = () => (
             </Link>
           </div>
           <div className="mb-1">
+            <Link href="/contact">
+              Contact Us
+            </Link>
+          </div>
+          <div className="mb-1">
             <Link href="/policy">
               Privacy Policy
             </Link>

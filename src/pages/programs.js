@@ -1,15 +1,20 @@
 import React, { useState } from "react"
 import styled from '@emotion/styled'
+import { Helmet } from "react-helmet";
 
 import Navbar from '../components/navbar'
 import Layout from '../components/layout'
 import { HeaderAccentText, HeaderText } from "."
+import youngDancer from '../images/program/young_dancer.jpg'
+import intermediateDancer from '../images/program/intermediate_dancer.jpg'
+import advancedDancer from '../images/program/advanced_dancer.jpg'
 
 const CLASS_INFO = [
   {
     title: 'Young Dancer Program',
     subtext: '(Beginner - Level 3)',
     description: 'Classes for kids combining movement and music to help students develop body awareness, rhythm, flexibility, coordination, and confidence while learning ballet vocabulary. Beginner is 1 class per week. Starting from Level 1, there will be Chinese Folk class in addition to ballet. Starting Level 3 classes will be TWICE a week, Chinese Folk only on the weekend.',
+    img: youngDancer,
     classes: [
       {
         title: 'Beginner',
@@ -77,6 +82,7 @@ const CLASS_INFO = [
     title: 'Intermediate Dancer Program',
     subtext: '(Level 4 - Level 7)',
     description: 'Structured ballet class focusing on proper posture, technique, and vocabulary with introduction of the use of ballet barre in Level 4. Level 5 students will be introduced to contemporary style dance. Level 5 and above learn 3 styles - Ballet, Folk, Contemporary.',
+    img: intermediateDancer,
     classes: [
       {
         title: 'Level 4',
@@ -128,6 +134,7 @@ const CLASS_INFO = [
     title: 'Advanced Dancer Program',
     subtext: '(Level 8 - Pre-Professional)',
     description: 'More fast paced and challenging movement within all 3 styles of dance. Starting Level 8 students will be introduced to pointe shoes (also dependent on level of strength per student, may only advance to pointe with instructors recommendation.)',
+    img: advancedDancer,
     classes: [
       {
         title: 'Level 8',
@@ -179,15 +186,18 @@ const Container = styled.div`
   }
 `;
 
-const Accordion = ({ title, subtitle, children }) => {
+const Accordion = ({ title, subtitle, children, className }) => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div>
+    <div className={className}>
+      <Helmet>
+        <style>{'body { background-color: black; }'}</style>
+      </Helmet>
       <Container onClick={() => setOpen(!open)}>
-        <HeaderText id={title.toLowerCase().split(' ').join('-')}>{title}</HeaderText>
-        <p className="text-stone-600 text-lg mt-5 ml-3">{subtitle}</p>
-        {children && <i className={`indicator glyphicon chevron-${open ? 'down' : 'up'}`}><span className="sp-1"></span><span class="sp-2"></span></i>}
+        <HeaderText id={title.toLowerCase().split(' ').join('-')} className="text-slate-200">{title}</HeaderText>
+        <p className="text-stone-300 text-lg mt-5 ml-3">{subtitle}</p>
+        {children && <i className={`chevron-${open ? 'down' : 'up'} text-slate-200`}><span className="sp-1"></span><span class="sp-2"></span></i>}
       </Container>
       {open && children}
     </div>
@@ -208,12 +218,13 @@ const ProgramsPage = () => {
   return (
     <Layout>
       <Navbar />
-      <PageContainer className="relative text-black p-12">
+      <PageContainer className="text-black p-12">
         <HeaderAccentText className="mb-2">OUR PROGRAMS</HeaderAccentText>
-        {CLASS_INFO.map(({ title, subtext, description, classes }) => (
-          <Accordion title={title} subtitle={subtext}>
+        {CLASS_INFO.map(({ title, subtext, description, classes, img }) => (
+          <Accordion title={title} subtitle={subtext} className="relative text-slate-200">
             <br />
-            <p className="text-stone-700">{description}</p>
+            <img src={img} className="rounded absolute top-15 -z-10 opacity-40" />
+            <p className="py-4">{description}</p>
             <br />
             {classes.map(({ title, schedule }) => (
               <>

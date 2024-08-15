@@ -64,6 +64,6 @@ body {
 }
 
 
-.chevron-down span, .chevron-up span {width: .5rem; height: .125rem; background-color: white; display: inline-block; transition: all .1s linear;}
+.chevron-down span, .chevron-up span {width: .5rem; height: .125rem; background-color: black; display: inline-block; transition: all .1s linear;}
 .chevron-down .sp-1, .chevron-up .sp-2 {transform: skewY(-40deg);}
 .chevron-up .sp-1, .chevron-down .sp-2 {transform: skewY(40deg);}

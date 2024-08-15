@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from '@emotion/styled'
-import { Helmet } from "react-helmet";
 
 import Navbar from '../components/navbar'
 import Layout from '../components/layout'
@@ -191,13 +190,10 @@ const Accordion = ({ title, subtitle, children, className }) => {
 
   return (
     <div className={className}>
-      <Helmet>
-        <style>{'body { background-color: black; }'}</style>
-      </Helmet>
       <Container onClick={() => setOpen(!open)}>
-        <HeaderText id={title.toLowerCase().split(' ').join('-')} className="text-slate-200">{title}</HeaderText>
-        <p className="text-stone-300 text-lg mt-5 ml-3">{subtitle}</p>
-        {children && <i className={`chevron-${open ? 'down' : 'up'} text-slate-200`}><span className="sp-1"></span><span class="sp-2"></span></i>}
+        <HeaderText id={title.toLowerCase().split(' ').join('-')}>{title}</HeaderText>
+        <p className="text-stone-600 text-lg mt-5 ml-3">{subtitle}</p>
+        {children && <i className={`chevron-${open ? 'down' : 'up'}`}><span className="sp-1"></span><span className="sp-2"></span></i>}
       </Container>
       {open && children}
     </div>
@@ -221,9 +217,9 @@ const ProgramsPage = () => {
       <PageContainer className="text-black p-12">
         <HeaderAccentText className="mb-2">OUR PROGRAMS</HeaderAccentText>
         {CLASS_INFO.map(({ title, subtext, description, classes, img }) => (
-          <Accordion title={title} subtitle={subtext} className="relative text-slate-200">
+          <Accordion title={title} subtitle={subtext} className="relative">
             <br />
-            <img src={img} className="rounded absolute top-15 -z-10 opacity-40" />
+            <img src={img} className="rounded absolute top-15 -z-10 opacity-20" />
             <p className="py-4">{description}</p>
             <br />
             {classes.map(({ title, schedule }) => (

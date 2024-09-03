@@ -246,14 +246,4 @@ const ProgramsPage = () => {
   )
 }
 
-const Tile = ({ title, description, link }) => {
-  return (
-    <div>
-      <h2 style={{ fontSize: '28px', fontFamily: 'Belgiano' }}>{title}</h2>
-      {/* <img src={xiaochen} /> */}
-      {description}
-    </div>
-  )
-}
-
 export default ProgramsPage

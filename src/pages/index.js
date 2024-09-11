@@ -63,6 +63,9 @@ const JumbotronRight = styled.div`
 const BGWrapper = styled.div`
   overflow: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const PageNumber = styled.div`
@@ -200,11 +203,10 @@ const IndexPage = () => {
                     classNames="fade"
                   >
                     <img
-                      onClick={() => setBg(2)}
                       src={BGs[bg]}
                       ref={curBgRef}
                       alt="Hero Image"
-                      style={{ height: '100%' }}
+                      style={bg === 2 ? {} : { height: '100%' }}
                     />
                   </CSSTransition>
                 </SwitchTransition>

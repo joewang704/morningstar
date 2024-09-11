@@ -219,7 +219,7 @@ const ProgramsPage = () => {
         {CLASS_INFO.map(({ title, subtext, description, classes, img }) => (
           <Accordion title={title} subtitle={subtext} className="relative">
             <br />
-            <img src={img} className="rounded absolute top-15 -z-10 opacity-70" />
+            <img src={img} className="rounded absolute -z-10 opacity-70" />
             <p className="py-4">{description}</p>
             <br />
             {classes.map(({ title, schedule }) => (

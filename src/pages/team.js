@@ -3,13 +3,13 @@ import styled from '@emotion/styled'
 
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
-import xiaochen from '../images/team/xiaochen.jpeg'
-import sherry from '../images/team/sherry.png'
-import wynnehuo from '../images/team/wynne.jpeg'
-import huijuyoung from '../images/team/huiju.jpeg'
-import mrswang from '../images/team/milan.jpeg'
-import jessicawash from '../images/team/jessica.png'
-import nurzhankulybaev from '../images/team/nurzhan.png'
+import xiaochen from '../images/team/xiaochen.jpg'
+import sherry from '../images/team/sherry.jpg'
+import wynnehuo from '../images/team/wynne.jpg'
+import huijuyoung from '../images/team/huiju.jpg'
+import mrswang from '../images/team/milan.jpg'
+import jessicawash from '../images/team/jessica.jpg'
+import nurzhankulybaev from '../images/team/nurzhan.jpg'
 import { HeaderAccentText, HeaderText } from "."
 
 const Container = styled.div`

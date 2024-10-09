@@ -19,6 +19,12 @@ import beijingAward from '../images/home/beijing_award.png'
 import ubcAward from '../images/home/ubc_award.png'
 import showAward from '../images/home/show_award.png'
 
+// Event images
+import poster1 from '../images/home/temp/poster1.jpg'
+import poster2 from '../images/home/temp/poster2.jpg'
+import poster3 from '../images/home/temp/poster3.jpg'
+import poster4 from '../images/home/temp/poster4.jpg'
+
 import harvard from '../images/home/harvard.svg'
 import stanford from '../images/home/stanford.png'
 import columbia from '../images/home/columbia.png'
@@ -141,8 +147,9 @@ const AlumniSection = styled.div`
   text-align: center;
 `
 
-const BGs = [bg1, bg2, bg3, bg4]
-const Gradient1BGs = [0]
+const show2024Event = true;
+
+const BGs = show2024Event ? [poster1, poster2, poster3, poster4] : [bg1, bg2, bg3, bg4];
 
 const IndexPage = () => {
   const [bg, setBg] = useState(0)
@@ -162,11 +169,15 @@ const IndexPage = () => {
             <JumbotronLeft>
               <Text className="ml-12 lg:ml-24 mt-40">
                 <h1 style={{ fontFamily: 'Playfair Display' }}
-                  className="fade-in-text text-6xl whitespace-nowrap">We Provide Professional</h1>
+                  className="fade-in-text text-6xl whitespace-nowrap">{show2024Event ? 'Morning Stars 2024' : 'We Provide Professional'}</h1>
                 <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
-                  className="fade-in-text font-bold text-6xl whitespace-nowrap">Dance Coaching</h1>
-                <p className="fade-in-text mt-6 mb-12 font-light text-lg">Receive top-quality dance instruction at Atlanta's premier dance academy</p>
-                <Link to="team"><Button>Explore Now</Button></Link>
+                  className="fade-in-text font-bold text-6xl whitespace-nowrap">{show2024Event ? "New Year's Event" : 'Dance Coaching'}</h1>
+                <p className="fade-in-text mt-6 mb-12 font-light text-lg">{show2024Event ? "Come join us in celebrating our 20 year anniversary! Tickets available for purchase now." : "Receive top-quality dance instruction at Atlanta's premier dance academy"}</p>
+                {show2024Event ? (
+                  <Link to="https://www.eventbrite.com/e/nutcracker-ballet-show-20th-anniversary-gala-morningstar-dance-academy-tickets-1034576384817" target="_blank">
+                    <Button>Buy Tickets</Button>
+                  </Link>
+                ) : <Link to="team"><Button>Explore Now</Button></Link>}
               </Text>
               <div className="bottom-12 mb-12 ml-12 lg:ml-24 text-xl flex items-center font-extralight">
                 {[0, 1, 2, 3].map(bgNum => {
@@ -206,7 +217,7 @@ const IndexPage = () => {
                       src={BGs[bg]}
                       ref={curBgRef}
                       alt="Hero Image"
-                      style={bg === 2 ? {} : { height: '100%' }}
+                      style={bg === 2 && !show2024Event ? {} : { height: '100%' }}
                     />
                   </CSSTransition>
                 </SwitchTransition>

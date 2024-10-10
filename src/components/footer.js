@@ -54,7 +54,7 @@ const Footer = () => (
             </Link>
           </div>
           <div>
-            <Link href="https://app.thestudiodirector.com/morningstardanceacademy" target="_blank">
+            <Link href="https://app.thestudiodirector.com/morningstardanceacademy/portal.sd?page=Login" target="_blank">
               Portal
             </Link>
           </div>

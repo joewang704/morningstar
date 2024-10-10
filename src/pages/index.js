@@ -171,7 +171,7 @@ const IndexPage = () => {
                 <h1 style={{ fontFamily: 'Playfair Display' }}
                   className="fade-in-text text-6xl whitespace-nowrap">{show2024Event ? 'Morning Stars 2024' : 'We Provide Professional'}</h1>
                 <h1 style={{ fontFamily: 'Playfair Display', letterSpacing: '.1rem' }}
-                  className="fade-in-text font-bold text-6xl whitespace-nowrap">{show2024Event ? "New Year's Event" : 'Dance Coaching'}</h1>
+                  className="fade-in-text font-bold text-6xl whitespace-nowrap">{show2024Event ? "Annual Recital" : 'Dance Coaching'}</h1>
                 <p className="fade-in-text mt-6 mb-12 font-light text-lg">{show2024Event ? "Come join us in celebrating our 20 year anniversary! Tickets available for purchase now." : "Receive top-quality dance instruction at Atlanta's premier dance academy"}</p>
                 {show2024Event ? (
                   <Link to="https://www.eventbrite.com/e/nutcracker-ballet-show-20th-anniversary-gala-morningstar-dance-academy-tickets-1034576384817" target="_blank">

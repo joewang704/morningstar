@@ -1,0 +1,142 @@
+.team {
+    &__body {
+        padding-block: 100px;
+
+        & > .boxed {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+
+        &__item {
+            display: flex;
+            gap: 45px;
+            align-items: flex-start;
+
+            &:first-child {
+                grid-column: span 2;
+            }
+
+            &:nth-child(2) {
+                grid-column: span 2;
+            }
+
+            &__image {
+                flex-shrink: 0;
+                width: 200px;
+                height: 200px;
+                overflow: hidden;
+
+                &-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 4px solid #8b6f4a;
+                }
+            }
+
+            &__header {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                border-bottom: 1px solid #4b5563;
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                flex-grow: 1;
+
+                & > .body-small {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3; // Limit text to 3 lines
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-height: calc(1.5em * 3); // Adjust for line height
+                }
+            }
+        }
+    }
+
+    // CTA section
+    &__cta {
+        padding-block: 64px;
+        background-color: #fff;
+    }
+}
+
+// media queries for responsiveness below 800px
+
+@media screen and (max-width: 850px) {
+    .team {
+        &__body {
+            padding-block: 40px;
+
+            & > .boxed {
+                gap: 48px;
+            }
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 48px;
+
+            &__item {
+                gap: 32px;
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+
+                &:first-child {
+                    grid-column: span 1;
+                }
+
+                &:nth-child(2) {
+                    grid-column: span 1;
+                }
+
+                &__header {
+                    padding-bottom: 12px;
+                    border-bottom: 1px solid #4b5563;
+                }
+
+                &__content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    flex-grow: 1;
+
+                    &__action {
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        // CTA section
+        &__cta {
+            padding-block: 40px;
+        }
+    }
+}

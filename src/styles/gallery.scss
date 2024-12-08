@@ -1,0 +1,47 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+
+    &__body {
+        background-color: #fff;
+        padding-block: 96px;
+
+        &__top {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & > .heading-1 {
+                color: #000;
+            }
+        }
+    }
+
+    // CTA section
+    &__cta {
+        padding-block: 64px;
+        background-color: #fff;
+    }
+}
+
+// media queries for responsiveness below 800px
+
+@media screen and (max-width: 850px) {
+    .gallery {
+        &__body {
+            padding-block: 40px;
+
+            &__top {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        // CTA section
+        &__cta {
+            padding-block: 40px;
+            background-color: #fff;
+        }
+    }
+}

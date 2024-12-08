@@ -1,0 +1,43 @@
+.terms {
+    &__header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__hero {
+        padding-block: 96px;
+        text-align: center;
+
+        & > .boxed {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__body {
+        background-color: #fff;
+        padding-block: 96px;
+        color: #000;
+    }
+}
+
+// media queries for responsiveness below 800px
+
+@media screen and (max-width: 850px) {
+    .terms {
+        &__hero {
+            padding-block: 40px;
+            text-align: center;
+
+            & > .boxed {
+                gap: 5px;
+            }
+        }
+
+        &__body {
+            background-color: #fff;
+            padding-block: 40px;
+        }
+    }
+}

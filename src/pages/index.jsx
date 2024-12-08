@@ -46,7 +46,7 @@ const IndexPage = () => {
                                 href="/contact"
                                 className="btn btn-primary-golden"
                             >
-                                BUY TICKETS
+                              GET STARTED
                             </a>
 
                             <div className="home__hero__content__stats">

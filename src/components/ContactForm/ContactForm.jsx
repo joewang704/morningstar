@@ -13,7 +13,7 @@ export default function ContactForm() {
     const [formErrors, setFormErrors] = useState({});
     const [buttonText, setButtonText] = useState("SUBMIT");
 
-    const [state, handleSubmit] = useForm("xdkozlar");
+    const [state, handleSubmit] = useForm("mqkvpjpg");
 
     useEffect(() => {
         if (state.succeeded) {
@@ -63,7 +63,7 @@ export default function ContactForm() {
 
     return (
         <div className="w-full bg-white rounded-[12px] border border-gray-200 p-[20px] md:p-[44px]">
-            <h1 className="heading-4 w-700 mb-8">Send Us Message</h1>
+            <h1 className="heading-4 w-700 mb-8">Contact Form</h1>
 
             <form onSubmit={onSubmit} className="space-y-4">
                 <div>

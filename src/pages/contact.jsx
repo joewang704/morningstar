@@ -37,7 +37,7 @@ const ContactPage = () => {
                 <Navbar />
                 <section className="contact__hero padding">
                     <div className="boxed">
-                        <h2 className="body-large color-golden">CONTACT US</h2>
+                        <h2 className="body-large color-golden">CONTACT</h2>
                         <h1 className="heading-1">Enroll With Us</h1>
                     </div>
                 </section>

@@ -65,6 +65,10 @@ body {
 
 /* Typography Variants */
 
+.playfair {
+  font-family: "Playfair Display", serif;
+}
+
 .heading-1 {
     font-size: 48px;
     font-family: "Playfair Display", serif;
@@ -200,14 +204,6 @@ body {
 
 .w-700 {
     font-weight: 700;
-}
-
-.w-800 {
-    font-weight: 800;
-}
-
-.w-900 {
-    font-weight: 900;
 }
 
 /* colors */

@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 
 import { testimonials } from "../../constants/home";
 
+const SCROLL_DURATION = 800;
+
 const ScrollingTestimonials = () => {
     return (
         <div className="flex flex-col gap-20">
@@ -14,39 +16,39 @@ const ScrollingTestimonials = () => {
                 <div className="absolute top-0 bottom-0 left-0 w-24 z-10 bg-gradient-to-r from-black to-transparent" />
 
                 <div className="flex items-center mb-4">
-                    <TestimonialList list={testimonials.top} duration={125} />
-                    <TestimonialList list={testimonials.top} duration={125} />
-                    <TestimonialList list={testimonials.top} duration={125} />
+                    <TestimonialList list={testimonials.top} duration={SCROLL_DURATION} />
+                    <TestimonialList list={testimonials.top} duration={SCROLL_DURATION} />
+                    <TestimonialList list={testimonials.top} duration={SCROLL_DURATION} />
                 </div>
                 <div className="flex items-center mb-4">
                     <TestimonialList
                         list={testimonials.middle}
-                        duration={75}
+                        duration={SCROLL_DURATION}
                         reverse
                     />
                     <TestimonialList
                         list={testimonials.middle}
-                        duration={75}
+                        duration={SCROLL_DURATION}
                         reverse
                     />
                     <TestimonialList
                         list={testimonials.middle}
-                        duration={75}
+                        duration={SCROLL_DURATION}
                         reverse
                     />
                 </div>
                 <div className="flex items-center">
                     <TestimonialList
                         list={testimonials.bottom}
-                        duration={275}
+                        duration={SCROLL_DURATION}
                     />
                     <TestimonialList
                         list={testimonials.bottom}
-                        duration={275}
+                        duration={SCROLL_DURATION}
                     />
                     <TestimonialList
                         list={testimonials.bottom}
-                        duration={275}
+                        duration={SCROLL_DURATION}
                     />
                 </div>
 
@@ -80,9 +82,6 @@ const TestimonialList = ({ list, reverse = false, duration = 50 }) => {
                             </span>
                             <span className="block text-sm">{t.intro}</span>
                         </div>
-                        <span className="text-7xl absolute top-2 right-2 text-white">
-                            "
-                        </span>
                     </div>
                 );
             })}

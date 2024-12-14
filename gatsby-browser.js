@@ -1,23 +1,20 @@
-// gatsby-browser.js
 import React from "react";
-import "./src/styles/global.css"; // Your global CSS file
+import "./src/styles/global.css";
 
-// Importing required font weights from Fontsource
-import "@fontsource/inter/300.css"; // Light
-import "@fontsource/inter/400.css"; // Regular
-import "@fontsource/inter/600.css"; // Semi Bold
-import "@fontsource/inter/700.css"; // Bold
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 
-import "@fontsource/manrope/400.css"; // Medium
-import "@fontsource/manrope/700.css"; // Bold
+import "@fontsource/manrope/400.css";
+import "@fontsource/manrope/700.css";
 
-import "@fontsource/playfair-display/600.css"; // Semi Bold
-import "@fontsource/playfair-display/700.css"; // Bold
-import "@fontsource/playfair-display/800.css"; // Extra Bold
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/600.css";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/800.css";
 
-// This function is called whenever a route update happens (page navigation)
 export const onRouteUpdate = ({ location }) => {
-    // Check if the URL has a hash (anchor link)
     if (location.hash) {
         // Delay the scroll until after the page has fully rendered
         setTimeout(() => {

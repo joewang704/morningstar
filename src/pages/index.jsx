@@ -35,12 +35,12 @@ const IndexPage = () => {
                 <section className="home__hero padding">
                     <div className="boxed">
                         <div className="home__hero__content">
-                            <h1 className="heading-1 w-800">
-                                Morning Stars 2024 <br /> Annual Recital
-                            </h1>
+                            <div className="text-6xl playfair">
+                                <div>We Provide Professional</div>
+                                <div className="font-extrabold">Dance Coaching</div>
+                            </div>
                             <p className="body-regular color-grey">
-                                Come join us in celebrating our 20 year
-                                anniversary! Tickets available for purchase now.
+                                Receive top-quality dance instruction at Atlanta's premier dance academy
                             </p>
                             <a
                                 href="/contact"
@@ -63,7 +63,7 @@ const IndexPage = () => {
                                         100+
                                     </p>
                                     <p className="body-regular w-500 color-grey">
-                                        Competition Top 12
+                                        Top 12 Competitions
                                     </p>
                                 </div>
                                 <div className="home__hero__content__stats__item">

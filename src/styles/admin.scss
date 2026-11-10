@@ -1,0 +1,333 @@
+// Admin panel — dark theme with golden accents
+// Matches the MorningStar site palette
+
+$gold: #c9a84c;
+$gold-hover: #e0c070;
+$bg-page: #0d0d0d;
+$bg-card: #161616;
+$bg-field: #1e1e1e;
+$border: rgba(255, 255, 255, 0.1);
+$border-focus: rgba(201, 168, 76, 0.6);
+$text-primary: #f0f0f0;
+$text-secondary: #999;
+$error: #e05c5c;
+$success: #4caf7d;
+
+// ─── Shared button styles ────────────────────────────────────────────────────
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  border: none;
+
+  &--primary {
+    background-color: $gold;
+    color: #0d0d0d;
+
+    &:hover:not(:disabled) {
+      background-color: $gold-hover;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $text-secondary;
+    border: 1px solid $border;
+
+    &:hover {
+      color: $text-primary;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
+  }
+}
+
+// ─── Login screen ────────────────────────────────────────────────────────────
+
+.admin-login {
+  min-height: 100vh;
+  background-color: $bg-page;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  &__card {
+    background-color: $bg-card;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 32px;
+    letter-spacing: 0.03em;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: $bg-field;
+    border: 1px solid $border;
+    border-radius: 4px;
+    color: $text-primary;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $border-focus;
+    }
+  }
+
+  &__error {
+    font-size: 0.85rem;
+    color: $error;
+    margin: 0;
+  }
+}
+
+// ─── Dashboard ───────────────────────────────────────────────────────────────
+
+.admin-dashboard {
+  min-height: 100vh;
+  background-color: $bg-page;
+  padding: 48px 24px;
+  color: $text-primary;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  &__loading {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 0.9rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: $bg-card;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 40px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+  }
+}
+
+// ─── Form fields ─────────────────────────────────────────────────────────────
+
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &--toggle {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__hint {
+    font-size: 0.8rem;
+    color: $text-secondary;
+    margin-left: 4px;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: $bg-field;
+    border: 1px solid $border;
+    border-radius: 4px;
+    color: $text-primary;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $border-focus;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+}
+
+// ─── Toggle switch ───────────────────────────────────────────────────────────
+
+.admin-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .admin-toggle__track {
+      background-color: $gold;
+    }
+
+    &:checked + .admin-toggle__track .admin-toggle__thumb {
+      transform: translateX(20px);
+    }
+
+    &:focus-visible + .admin-toggle__track {
+      outline: 2px solid $gold;
+      outline-offset: 2px;
+    }
+  }
+
+  &__track {
+    width: 44px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+  }
+
+  &__thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+}
+
+// ─── Save toast ──────────────────────────────────────────────────────────────
+
+.admin-toast {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 4px;
+  margin: 0;
+
+  &--success {
+    background-color: rgba(76, 175, 125, 0.15);
+    color: $success;
+    border: 1px solid rgba(76, 175, 125, 0.3);
+  }
+
+  &--error {
+    background-color: rgba(224, 92, 92, 0.15);
+    color: $error;
+    border: 1px solid rgba(224, 92, 92, 0.3);
+  }
+}
+
+// ─── Responsive ──────────────────────────────────────────────────────────────
+
+@media screen and (max-width: 600px) {
+  .admin-login {
+    &__card {
+      padding: 32px 24px;
+    }
+  }
+
+  .admin-dashboard {
+    padding: 24px 16px;
+
+    &__header {
+      margin-bottom: 24px;
+    }
+
+    &__form {
+      padding: 24px 20px;
+      gap: 20px;
+    }
+  }
+}

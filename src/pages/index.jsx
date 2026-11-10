@@ -2,6 +2,7 @@ import * as React from "react";
 import "../styles/home.scss";
 
 // component imports
+import AnnouncementBanner from "../components/AnnouncementBanner/AnnouncementBanner";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import CTABanner from "../components/CTABanner/CTABanner";
@@ -26,6 +27,7 @@ import { ShootingStars } from "../components/ShootingStars/ShootingStars";
 const IndexPage = () => {
     return (
         <main className="home">
+            <AnnouncementBanner />
             <header className="home__header relative">
                 <Navbar />
 

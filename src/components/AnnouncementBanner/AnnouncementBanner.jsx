@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
 import "./AnnouncementBanner.scss";
 
 // Hardcoded fallback values used when Firestore returns no data
 const FALLBACK = {
-  message: "Registration for Spring 2025 is now open! —",
-  linkText: "Enroll Today",
-  linkHref: "/contact",
+  message: "Registration for Spring 2025 is now open!",
 };
 
 const AnnouncementBanner = () => {
@@ -56,31 +53,11 @@ const AnnouncementBanner = () => {
   }
 
   const message = announcement.message || FALLBACK.message;
-  const linkText = announcement.linkText || FALLBACK.linkText;
-  const linkHref = announcement.linkHref || FALLBACK.linkHref;
-
-  // Internal links use Gatsby <Link>, external links use a plain <a>
-  const isExternal =
-    linkHref.startsWith("http://") || linkHref.startsWith("https://");
 
   return (
     <div className="announcement-banner" role="banner" aria-label="Site announcement">
       <p className="announcement-banner__message">
-        {message}{" "}
-        {isExternal ? (
-          <a
-            href={linkHref}
-            className="announcement-banner__link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {linkText}
-          </a>
-        ) : (
-          <Link to={linkHref} className="announcement-banner__link">
-            {linkText}
-          </Link>
-        )}
+        {message}
       </p>
       <button
         className="announcement-banner__dismiss"

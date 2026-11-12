@@ -5,9 +5,7 @@ import { getAnnouncement, updateAnnouncement } from "../firebase/announcement";
 // Default fallback values matching the existing hardcoded banner
 const DEFAULTS = {
   active: false,
-  message: "Registration for Spring 2025 is now open! —",
-  linkText: "Enroll Today",
-  linkHref: "/contact",
+  message: "Registration for Spring 2025 is now open!",
 };
 
 const AdminPage = () => {
@@ -18,8 +16,6 @@ const AdminPage = () => {
   // Form fields
   const [active, setActive] = useState(DEFAULTS.active);
   const [message, setMessage] = useState(DEFAULTS.message);
-  const [linkText, setLinkText] = useState(DEFAULTS.linkText);
-  const [linkHref, setLinkHref] = useState(DEFAULTS.linkHref);
 
   const [saveStatus, setSaveStatus] = useState(""); // "success" | "error" | ""
   const [isSaving, setIsSaving] = useState(false);
@@ -36,8 +32,6 @@ const AdminPage = () => {
         if (data) {
           setActive(data.active ?? DEFAULTS.active);
           setMessage(data.message ?? DEFAULTS.message);
-          setLinkText(data.linkText ?? DEFAULTS.linkText);
-          setLinkHref(data.linkHref ?? DEFAULTS.linkHref);
         }
       } catch (err) {
         console.error("Failed to load announcement data:", err);
@@ -65,7 +59,7 @@ const AdminPage = () => {
     setIsSaving(true);
     setSaveStatus("");
     try {
-      await updateAnnouncement({ active, message, linkText, linkHref });
+      await updateAnnouncement({ active, message });
       setSaveStatus("success");
     } catch (err) {
       console.error("Failed to save announcement:", err);
@@ -169,36 +163,6 @@ const AdminPage = () => {
               onChange={(e) => setMessage(e.target.value)}
               rows={3}
               placeholder="Announcement message text…"
-            />
-          </div>
-
-          {/* Link text */}
-          <div className="admin-field">
-            <label htmlFor="admin-link-text" className="admin-field__label">
-              Link Text
-            </label>
-            <input
-              id="admin-link-text"
-              type="text"
-              className="admin-field__input"
-              value={linkText}
-              onChange={(e) => setLinkText(e.target.value)}
-              placeholder="e.g. Enroll Today"
-            />
-          </div>
-
-          {/* Link href */}
-          <div className="admin-field">
-            <label htmlFor="admin-link-href" className="admin-field__label">
-              Link URL
-            </label>
-            <input
-              id="admin-link-href"
-              type="text"
-              className="admin-field__input"
-              value={linkHref}
-              onChange={(e) => setLinkHref(e.target.value)}
-              placeholder="/contact"
             />
           </div>
 

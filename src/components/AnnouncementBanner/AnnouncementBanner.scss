@@ -29,17 +29,6 @@
         margin: 0;
     }
 
-    &__link {
-        color: #1a1a1a;
-        text-decoration: underline;
-        text-underline-offset: 2px;
-        font-weight: 500;
-
-        &:hover {
-            opacity: 0.75;
-        }
-    }
-
     &__dismiss {
         position: absolute;
         right: 16px;
